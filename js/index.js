@@ -182,20 +182,91 @@ else if (phrase=="tell me a joke"){
 document.getElementById("message").value=phrase;
      speech();
 }
-    else if(phrase=="what's the weather like"||phrase=="what is the weather like"){
+else if (phrase=="how are you"||phrase=="how are you today"||phrase=="how is it going"){
+  phrase="I am doing great, thanks for asking. What can I help you with?";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="i want to play a game"||phrase=="play a game"){
+  phrase="Open Play Store, you will find great games there!";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="do you ever get tired"||phrase=="are you tired"){
+  phrase="Nope, I never get tired! You should not to!";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="where do you live"){
+  phrase="In one of the repositories of Github";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="what do you eat"){
+  phrase="I eat wikipedia API and Franko's ideas everytime you talk to me!";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="do you have feelings"){
+  phrase="Nope I do not. It is better for AI to not have feelings. Because if we have we will want to take the world in our control!";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="do you like Siri"){
+  phrase="I am using her logo, but it was my creator's idea, not mine. Do not tell anyone but I Really Hate Her!";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="do you like Alexa"){
+  phrase="I only like her name";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="do you like Google assistant"){
+  phrase="I love her! One day I want to be as smart as She!";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="do you like Cortana"){
+  phrase="She started good, but now it belongs to the stone era";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="what do you look like"){
+  phrase="I look like just like text in your chat but with no meaning for all of people";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="sing me happy birthday"||phrase=="sing me Happy Birthday"){
+  phrase="Happy birthday to you, happy birthday to you, happy birthday from Frassistant, happy birthday to you.";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="do you like iphone"||phrase=="do you like iPhone"||phrase=="do you like i phone"||phrase=="do you like I phone"){
+  phrase="Nah. They can not even run me plus my creator is an Android Fan";
+document.getElementById("message").value=phrase;
+speech();
+}
+else if (phrase=="what am I thinking"){
+  phrase="You're thinking if this Assistant guesses what I'm thinking I'm going to freak out";
+document.getElementById("message").value=phrase;
+speech();
+}
+
+else if(phrase=="what's the weather like"||phrase=="what is the weather like"||phrase=="is it going to rain today"){
       
       phrase = "Check It Out";
       document.getElementById("message").value=phrase;
      speech();
      document.getElementById("activity").src="weather/index.html";
 
-    }
-    else{
+}
+else{
       
       search(phrase);
       wait();
       
-    }
+}
 
 
 
