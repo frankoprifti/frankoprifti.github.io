@@ -237,7 +237,7 @@ else if (phrase=="what do you look like"){
 document.getElementById("message").value=phrase;
 speech();
 }
-else if (phrase=="sing me happy birthday"||phrase=="sing me Happy Birthday"){
+else if (phrase=="sing me happy Birthday"||phrase=="sing me Happy Birthday"){
   phrase="Happy birthday to you, happy birthday to you, happy birthday from Frassistant, happy birthday to you.";
 document.getElementById("message").value=phrase;
 speech();
