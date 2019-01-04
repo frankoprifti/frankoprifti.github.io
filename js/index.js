@@ -187,7 +187,7 @@ else if (phrase=="how are you"||phrase=="how are you today"||phrase=="how is it 
 document.getElementById("message").value=phrase;
 speech();
 }
-else if (phrase=="i want to play a game"||phrase=="play a game"){
+else if (phrase=="I want to play a game"||phrase=="play a game"){
   phrase="Open Play Store, you will find great games there!";
 document.getElementById("message").value=phrase;
 speech();
