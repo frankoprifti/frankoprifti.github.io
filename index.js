@@ -272,6 +272,11 @@ else if(phrase.substring(0,6)=="who is"){
   search(phrase);
   wait();
   }
+else if(phrase.substring(0,7)=="what is"){
+  phrase=phrase.substring(10);
+  search(phrase);
+  wait();
+  }
 else{
       
       search(phrase);
