@@ -204,7 +204,7 @@ document.getElementById("message").value=phrase;
 speech();
 }
 else if (phrase=="where do you live"){
-  phrase="In one of the repositories of Github";
+  phrase="In a Github Repository";
 document.getElementById("message").value=phrase;
 speech();
 }
@@ -239,7 +239,7 @@ document.getElementById("message").value=phrase;
 speech();
 }
 else if (phrase=="what do you look like"){
-  phrase="I look like just like text in your chat but with no meaning for all of people";
+  phrase="I look like lines of code";
 document.getElementById("message").value=phrase;
 speech();
 }
