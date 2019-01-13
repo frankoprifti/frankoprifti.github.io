@@ -102,7 +102,7 @@ function speech(){
     msg.text = text;
 
     msg.onend = function(e) {
-    document.getElementById("activity").src="";
+    document.getElementById("activity").src="/visualize/empty.html";
     console.log('Finished in ' + event.elapsedTime + ' seconds.');
     };
 
