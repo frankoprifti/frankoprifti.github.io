@@ -83,8 +83,8 @@ colors.forEach(function(v, i, a){
 });
 hints.innerHTML = 'Tap/click .';
 
-document.body.onclick = function() {
-  document.getElementById("tap").src="effect.gif";
+function startrec() {
+  document.getElementById("activity").src="/visualize/index.html";
   recognition.start();
   console.log('Ready to receive a color command.');
 }
@@ -102,8 +102,8 @@ function speech(){
     msg.text = text;
 
     msg.onend = function(e) {
-      document.getElementById("tap").src="mic.png";
-      console.log('Finished in ' + event.elapsedTime + ' seconds.');
+    document.getElementById("activity").src="";
+    console.log('Finished in ' + event.elapsedTime + ' seconds.');
     };
 
     speechSynthesis.speak(msg);
