@@ -84,7 +84,7 @@ colors.forEach(function(v, i, a){
 hints.innerHTML = 'Tap/click .';
 
 function startrec() {
-  document.getElementById("visualizer").style.display = "relative";
+  document.getElementById("tap").src = "effect.gif";
   recognition.start();
   console.log('Ready to receive a color command.');
 }
@@ -102,7 +102,7 @@ function speech(){
     msg.text = text;
 
     msg.onend = function(e) {
-	document.getElementById("visualizer").style.display = "none";
+	document.getElementById("tap").src = "mic.png";
     console.log('Finished in ' + event.elapsedTime + ' seconds.');
     };
 
