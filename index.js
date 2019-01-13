@@ -8,9 +8,7 @@ function search(searchterm){
   loadJSON(url,gotData,'jsonp');
 }
 function gotData(data){
-  console.log(data[2][0]);
   wikiRes=data[2][0];
-  console.log(wikiRes);
 }
 function wait() {
   setTimeout(function(){ 
@@ -47,7 +45,6 @@ $(function(){
       msg.text = text;
 
       msg.onend = function(e) {
-        console.log('Finished in ' + event.elapsedTime + ' seconds.');
       };
 
       speechSynthesis.speak(msg);
@@ -78,7 +75,6 @@ var hints = document.querySelector('.hints');
 
 var colorHTML= '';
 colors.forEach(function(v, i, a){
-  console.log(v, i);
   colorHTML += '<span style="background-color:' + v + ';"> ' + v + ' </span>';
 });
 hints.innerHTML = 'Tap/click .';
@@ -86,7 +82,6 @@ hints.innerHTML = 'Tap/click .';
 function startrec() {
   document.getElementById("tap").src = "effect.gif";
   recognition.start();
-  console.log('Ready to receive a color command.');
 }
 
 function speech(){
@@ -103,7 +98,6 @@ function speech(){
 
     msg.onend = function(e) {
 	document.getElementById("tap").src = "mic.png";
-    console.log('Finished in ' + event.elapsedTime + ' seconds.');
     };
 
     speechSynthesis.speak(msg);
@@ -289,7 +283,6 @@ else{
     
   diagnostic.textContent = 'Result received: ' + phrase + '.';
   bg.style.backgroundColor = phrase;
-  console.log('Confidence: ' + event.results[0][0].confidence);
 
 }
 
