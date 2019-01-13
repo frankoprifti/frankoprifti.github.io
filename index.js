@@ -84,7 +84,7 @@ colors.forEach(function(v, i, a){
 hints.innerHTML = 'Tap/click .';
 
 function startrec() {
-  document.getElementById("visualizer").style.display = "absolute";
+  document.getElementById("visualizer").style.display = "relative";
   recognition.start();
   console.log('Ready to receive a color command.');
 }
