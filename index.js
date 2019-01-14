@@ -187,11 +187,6 @@ else if (phrase=="how are you"||phrase=="how are you today"||phrase=="how is it 
 document.getElementById("message").value=phrase;
 speech();
 }
-else if (phrase=="I want to play a game"||phrase=="play a game"){
-  phrase="Open Play Store, you will find great games there!";
-document.getElementById("message").value=phrase;
-speech();
-}
 else if (phrase=="do you ever get tired"||phrase=="are you tired"){
   phrase="Nope, I never get tired! You should not to!";
 document.getElementById("message").value=phrase;
@@ -271,6 +266,15 @@ else if(phrase.substring(0,7)=="what is"){
   search(phrase);
   wait();
   }
+else if(phrase=="I want to play a game"||phrase=="play a game"||phrase=="let's play a game"){
+      
+      phrase = "You gonna love this game";
+      document.getElementById("message").value=phrase;
+     speech();
+     window.open(url,'_blank');
+	
+
+}
 else{
       
       search(phrase);
