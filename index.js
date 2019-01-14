@@ -266,7 +266,7 @@ else if(phrase.substring(0,7)=="what is"){
   search(phrase);
   wait();
   }
-else if(phrase=="I want to play a game"||phrase=="play a game"||phrase=="let's play a game"){
+/*else if(phrase=="I want to play a game"||phrase=="play a game"||phrase=="let's play a game"){
       
       phrase = "You gonna love this game";
       document.getElementById("message").value=phrase;
@@ -274,7 +274,7 @@ else if(phrase=="I want to play a game"||phrase=="play a game"||phrase=="let's p
      window.open(http://vr.ff.com/us/,'_blank');
 	
 
-}
+}*/
 else{
       
       search(phrase);
