@@ -271,7 +271,7 @@ else if(phrase=="I want to play a game"||phrase=="play a game"||phrase=="let's p
       phrase = "You gonna love this game";
       document.getElementById("message").value=phrase;
      speech();
-     window.open(url,'_blank');
+     window.open(http://vr.ff.com/us/,'_blank');
 	
 
 }
