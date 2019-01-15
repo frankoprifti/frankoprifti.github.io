@@ -41,3 +41,4 @@ self.addEventListener('fetch', function(event) {
     })
   );
 })
+console.clear();
