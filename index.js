@@ -307,3 +307,4 @@ recognition.onerror = function(event) {
      speech();
   diagnostic.textContent = 'Please Try Again: ' + event.error;
 }
+console.clear();
