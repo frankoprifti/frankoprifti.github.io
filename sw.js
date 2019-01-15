@@ -41,4 +41,8 @@ self.addEventListener('fetch', function(event) {
     })
   );
 })
-console.clear();
+setInterval(
+  function(){ console.clear(); },
+  5000
+);
+
