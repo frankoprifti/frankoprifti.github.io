@@ -6,7 +6,7 @@
   <title>A Simple AI | Made By Franko Prifti</title>
   <link rel="icon" href="favicon.png" sizes="16x16" type="image/png"> 
 <link rel="icon" href="favicon.png" sizes="16x16 32x32" type="image/png"> 
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.js"></script>
   <link rel="stylesheet" href="style.css">
 
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -76,7 +76,10 @@
   </div>
 </div>
 <div>
-    <p class="hints"> </p><img id="tap" onclick="startrec()" src="mic.png"  width="100px" height="100px" class="mic">
+    <p class="hints"> </p>
+<div id="canvas"></div>
+    <img id="tap" onclick="startrec()" src="mic.png"  width="100px" height="100px" class="mic">
+    
     <iframe id="activity" scr frameborder="0" width="100%" height="450px"></iframe>
     <div class="downPart">
         <p class="output"><em>...diagnostic messages</em></p>
