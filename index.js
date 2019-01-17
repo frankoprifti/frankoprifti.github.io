@@ -1,26 +1,6 @@
 let abstract; let searchurl="https://en.wikipedia.org/w/api.php?action=opensearch&limit=1&format=json&search=";
 let phrase;let wikiRes;let waitvar;
-var mic, fft; var cnv;
 function setup() { 
-  cnv=createCanvas(300,130);
-  cnv.parent('canvas');
-   noFill();
-   mic = new p5.AudioIn();
-   mic.start();
-   fft = new p5.FFT();
-   fft.setInput(mic);
-}
-function draw() {
-   background(27,27,27);
-
-   var spectrum = fft.analyze();
-
-   beginShape();
-   stroke(255);
-   for (i = 0; i<spectrum.length; i++) {
-    vertex(i, map(spectrum[i], 0, 255, height, 0) );
-   }
-   endShape();
 }
 function search(searchterm){
   this.searchterm=searchterm;
@@ -100,7 +80,7 @@ colors.forEach(function(v, i, a){
 hints.innerHTML = 'Tap/click .';
 
 function startrec() {
-  document.getElementById("canvas").style.display = "block";
+  document.getElementById("tap").src = "effect.gif";
   recognition.start();
 }
 
@@ -117,7 +97,7 @@ function speech(){
     msg.text = text;
 
     msg.onend = function(e) {
-	document.getElementById("canvas").style.display = "none";
+	document.getElementById("tap").src = "mic.png";
     };
 
     speechSynthesis.speak(msg);

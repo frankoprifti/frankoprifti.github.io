@@ -33,12 +33,6 @@ div {
 ul {
   margin: 0;
 }
-#canvas{
-  width: 300px;
-  padding-left: 50%;
-  margin-left: -150px;
-  display: none;
-}
 .mic{
     display:block;
  margin:auto;
