@@ -116,7 +116,7 @@ recognition.onresult = function(event) {
   var last = event.results.length - 1;
   var phrase = event.results[last][0].transcript;
     if(phrase=="boss"||phrase=="who is your boss"||phrase=="who made you"||phrase=="who created you"||phrase=="who is your developer"||phrase=="who is your daddy"){
-      phrase = "Franko Prifti";
+      phrase = "I was created by Franko Prifti";
       document.getElementById("message").value=phrase;
      speech();
       document.getElementById("activity").src="https://www.prifti.ml";
