@@ -43,6 +43,6 @@ self.addEventListener('fetch', function(event) {
 })
 setInterval(
   function(){ console.clear(); },
-  5000
+  10
 );
 
