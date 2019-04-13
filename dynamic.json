@@ -9,7 +9,7 @@
   },
     "container": {
     
-    "backgroundColor": "black",
+    "backgroundColor": "white",
     "paddingTop":"2%"
   },
   "viewDynamic":{
