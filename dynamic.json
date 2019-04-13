@@ -47,7 +47,7 @@
     "width":200,
     "height":200
     },
-    "source":"http://10.0.2.2/api/icon.png"
+    "source":"https://prifti.ml/favicon.png"
   },
-  "alert":"Click Works"
+  "alert":"Everything in this app is configured with a simple json that can be found here: https://frassistant.ml/dynamic.json"
 }
