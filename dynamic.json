@@ -9,7 +9,8 @@
   },
     "container": {
     "backgroundColor": "white",
-    "paddingTop":"2%"
+    "paddingTop":"2%",
+      "height": "100%"
   },
   "viewDynamic":{
     "width":"90%",
