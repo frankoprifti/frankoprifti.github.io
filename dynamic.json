@@ -3,8 +3,11 @@
     "header":"This Is Awesome",
     "body":"loremipsumlorem"
   },
-  "statusBar":"rgb(255,255,255)",
-  "container": {
+  "statusBar":{
+    "color":"rgb(255,255,255)",
+    "icons": "dark-content"
+  },
+    "container": {
     
     "backgroundColor": "white",
     "paddingTop":"2%"
