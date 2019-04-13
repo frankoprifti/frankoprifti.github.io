@@ -1,0 +1,42 @@
+{
+  "content":{
+    "header":"This Is Awesome",
+    "body":"loremipsumlorem"
+  },
+  "statusBar":"rgb(255,255,255)",
+  "container": {
+    
+    "backgroundColor": "white",
+    "paddingTop":"2%"
+  },
+  "viewDynamic":{
+    "width":"90%",
+    "marginLeft":"5%",
+    "backgroundColor":"white",
+    "borderRadius":10,
+    "elevation":10,
+    "display":"flex",
+    "justifyContent":"center"
+  },
+  "textOnHeader":{
+    "fontSize":30,
+    "textAlign":"center",
+    "padding":10
+  },
+  "viewDynamic1":{
+    "width":"90%",
+    "height":"80%",
+    "marginLeft":"5%",
+    "marginTop":"7%",
+    "backgroundColor":"white",
+    "borderRadius":10,
+    "elevation":11,
+    "display":"flex",
+    "justifyContent":"center",
+    "padding":"5%"
+  },
+  "textOnBody":{
+    "fontSize":24
+  }
+
+}
