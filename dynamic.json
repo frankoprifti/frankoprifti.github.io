@@ -4,18 +4,19 @@
     "body":"TestTestTestTestTestTest"
   },
   "statusBar":{
-    "color":"rgb(255,5,5)",
+    "color":"rgb(25,25,25)",
     "icons": "dark-content"
   },
     "container": {
     
-    "backgroundColor": "lightgray",
-    "paddingTop":"2%"
+    "backgroundColor": "white",
+    "paddingTop":"2%",
+      "height":"100%"
   },
   "viewDynamic":{
     "width":"90%",
     "marginLeft":"5%",
-    "backgroundColor":"lightgray",
+    "backgroundColor":"white",
     "borderRadius":10,
     "elevation":10,
     "display":"flex",
@@ -31,7 +32,7 @@
     "height":"80%",
     "marginLeft":"5%",
     "marginTop":"7%",
-    "backgroundColor":"lightgray",
+    "backgroundColor":"white",
     "borderRadius":10,
     "elevation":11,
     "display":"flex",
