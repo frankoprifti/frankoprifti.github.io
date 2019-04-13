@@ -1,17 +1,15 @@
 {
   "content":{
-    "header":"Franko Prifti",
-    "body":"TestTestTestTestTestTest"
+    "header":"This Is Awesome",
+    "body":""
   },
   "statusBar":{
-    "color":"rgb(25,25,25)",
+    "color":"rgb(255,255,255)",
     "icons": "dark-content"
   },
     "container": {
-    
     "backgroundColor": "white",
-    "paddingTop":"2%",
-      "height":"100%"
+    "paddingTop":"2%"
   },
   "viewDynamic":{
     "width":"90%",
@@ -37,10 +35,19 @@
     "elevation":11,
     "display":"flex",
     "justifyContent":"center",
-    "padding":"5%"
+    "padding":"5%",
+    "alignItems":"center",
+    "alignContent":"center"
   },
   "textOnBody":{
     "fontSize":24
-  }
-
+  },
+  "image":{
+    "style":{
+    "width":200,
+    "height":200
+    },
+    "source":"http://10.0.2.2/api/icon.png"
+  },
+  "alert":"Click Works"
 }
