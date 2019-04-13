@@ -4,7 +4,7 @@
     "body":""
   },
   "statusBar":{
-    "color":"rgb(255,255,255)",
+    "color":"rgb(25,25,25)",
     "icons": "dark-content"
   },
     "container": {
