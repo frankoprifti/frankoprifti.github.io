@@ -1,21 +1,21 @@
 {
   "content":{
-    "header":"Dynamic Header",
+    "header":"Franko Prifti",
     "body":"TestTestTestTestTestTest"
   },
   "statusBar":{
-    "color":"rgb(25,25,25)",
+    "color":"rgb(255,5,5)",
     "icons": "dark-content"
   },
     "container": {
     
-    "backgroundColor": "white",
+    "backgroundColor": "lightgray",
     "paddingTop":"2%"
   },
   "viewDynamic":{
     "width":"90%",
     "marginLeft":"5%",
-    "backgroundColor":"white",
+    "backgroundColor":"lightgray",
     "borderRadius":10,
     "elevation":10,
     "display":"flex",
@@ -31,7 +31,7 @@
     "height":"80%",
     "marginLeft":"5%",
     "marginTop":"7%",
-    "backgroundColor":"white",
+    "backgroundColor":"lightgray",
     "borderRadius":10,
     "elevation":11,
     "display":"flex",
