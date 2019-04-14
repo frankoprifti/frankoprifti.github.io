@@ -1,7 +1,7 @@
 {
   "app":{
-    "statusColor":"rgb(27,27,27)",
-    "theme":"rgb(35,35,35)",
+    "statusColor":"rgb(20,20,20)",
+    "theme":"rgb(55,55,55)",
     "body":"rgb(255,255,255)"
   },
   "footer":{
