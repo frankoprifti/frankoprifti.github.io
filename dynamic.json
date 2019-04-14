@@ -1,54 +1,33 @@
 {
-  "content":{
-    "header":"This Is Awesome",
-    "body":""
+  "app":{
+    "statusColor":"rgb(27,27,27)",
+    "theme":"rgb(35,35,35)",
+    "body":"rgb(255,255,255)"
   },
-  "statusBar":{
-    "color":"rgb(25,25,25)",
-    "icons": "dark-content"
+  "footer":{
+    "iconOne":"apps",
+    "iconTwo":"camera",
+    "iconThree":"menu",
+    "iconFour":"contact"
   },
-    "container": {
-    "backgroundColor": "white",
-    "paddingTop":"2%",
-      "height": "100%"
-  },
-  "viewDynamic":{
-    "width":"90%",
-    "marginLeft":"5%",
-    "backgroundColor":"white",
-    "borderRadius":10,
-    "elevation":10,
-    "display":"flex",
-    "justifyContent":"center"
-  },
-  "textOnHeader":{
-    "fontSize":30,
-    "textAlign":"center",
-    "padding":10
-  },
-  "viewDynamic1":{
-    "width":"90%",
-    "height":"80%",
-    "marginLeft":"5%",
-    "marginTop":"7%",
-    "backgroundColor":"white",
-    "borderRadius":10,
-    "elevation":11,
-    "display":"flex",
-    "justifyContent":"center",
-    "padding":"5%",
-    "alignItems":"center",
-    "alignContent":"center"
-  },
-  "textOnBody":{
-    "fontSize":24
+  "contentBody":{
+    "width":"100%",
+    "display":"flex"
   },
   "image":{
-    "style":{
-    "width":200,
+    "marginLeft":"20%",
+    "marginTop":"30%",
+    "width":"60%",
     "height":200
-    },
-    "source":"https://prifti.ml/favicon.png"
   },
-  "alert":"Everything in this app is configured with a simple json that can be found here: https://frassistant.ml/dynamic.json"
+  "imageUri":[
+    "https://facebook.github.io/react/logo-og.png",
+    "https://prifti.ml/favicon.png",
+    "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    "https://www.facebook.com/images/fb_icon_325x325.png"
+  ],
+  "content":{
+    "header":"Dynamic",
+    "body":""
+  }
 }
