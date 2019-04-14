@@ -15,19 +15,17 @@
     "display":"flex"
   },
   "image":{
-    "marginLeft":"20%",
-    "marginTop":"30%",
-    "width":"60%",
-    "height":200
+    "width":"100%",
+    "height":700
   },
   "imageUri":[
-    "https://facebook.github.io/react/logo-og.png",
-    "https://prifti.ml/favicon.png",
-    "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-    "https://www.facebook.com/images/fb_icon_325x325.png"
+    "https://ia801506.us.archive.org/20/items/frankoprifti_gmail_3day_20190328/1day.png",
+    "https://ia801506.us.archive.org/20/items/frankoprifti_gmail_3day_20190328/2day.png",
+    "https://ia801506.us.archive.org/20/items/frankoprifti_gmail_3day_20190328/3day.png",
+    "https://ia801506.us.archive.org/20/items/frankoprifti_gmail_3day_20190328/4day.png"
   ],
   "content":{
-    "header":"Dynamic",
+    "header":"Dynamic ",
     "body":""
   }
 }
