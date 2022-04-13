@@ -8,7 +8,6 @@ function search(searchterm) {
   loadJSON(url, gotData, 'jsonp');
 }
 function gotData(data) {
-  console.log('data', data.query.pages[Object.keys(data.query.pages)[0]].extract)
   wikiRes = data.query.pages[Object.keys(data.query.pages)[0]].extract.split('. ').slice(0, 1).join('. ');
 }
 function wait() {
@@ -56,16 +55,16 @@ $(function () {
   }
 });
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+// var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
 var colors = ["Tap"];
 var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
 
 var recognition = new SpeechRecognition();
-var speechRecognitionList = new SpeechGrammarList();
-speechRecognitionList.addFromString(grammar, 1);
-recognition.grammars = speechRecognitionList;
+// var speechRecognitionList = new SpeechGrammarList();
+// speechRecognitionList.addFromString(grammar, 1);
+// recognition.grammars = speechRecognitionList;
 //recognition.continuous = false;
 recognition.lang = 'en-US';
 recognition.interimResults = false;
