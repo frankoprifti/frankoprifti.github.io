@@ -99,7 +99,7 @@ const items = [
     type: "img",
     src: "",
     img: "assets/img/projects/iindy-console.gif",
-    project: "Website",
+    project: "Web Application",
     client: "iiNDYVERSE",
     langages: "React",
     previewLink: "demo.iindy.co",
@@ -110,7 +110,7 @@ const items = [
     type: "img",
     src: "",
     img: "assets/img/projects/iindy-artist-landing.png",
-    project: "Website",
+    project: "Web Application",
     client: "iiNDYVERSE",
     langages: "React",
     previewLink: "tommisch.iindy.co",
@@ -121,7 +121,7 @@ const items = [
     type: "img",
     src: "",
     img: "assets/img/projects/iindy-collectible.png",
-    project: "Website",
+    project: "Web Application",
     client: "iiNDYVERSE",
     langages: "Next.js",
     previewLink: "demo.api.iindy.co/c/cKv4qYK",
@@ -132,7 +132,7 @@ const items = [
     type: "img",
     src: "",
     img: "assets/img/projects/movienator-web.png",
-    project: "Website",
+    project: "Web Application",
     client: "Personal",
     langages: "Flutter",
     previewLink: "movienator.github.io",
@@ -170,6 +170,61 @@ const items = [
     langages: "Flutter, Wordpress API",
     previewLink: "play.google.com/store/apps/details?id=com.payment_tracker.franko",
   },
+  {
+    id: 15,
+    title: "Frassistant",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/frassistant.png",
+    project: "Web Application",
+    client: "Personal",
+    langages: "P5.js, Javascript, TTS API",
+    previewLink: "frassistant-fp.netlify.app",
+  },
+  {
+    id: 16,
+    title: "Infinit Net",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/infinit-net.png",
+    project: "Website",
+    client: "Infinit Net",
+    langages: "HTML, CSS, Javascript",
+    previewLink: "infinit-net.al",
+  },
+  {
+    id: 17,
+    title: "Bicycle Speedo",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/bicycyle-app.png",
+    project: "Mobile Application",
+    client: "Personal",
+    langages: "Flutter, Figma",
+    previewLink: "gitlab.com/frankoprifti/bicycle_app",
+  },
+  {
+    id: 18,
+    title: "Experience Finder",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/experience-finder.png",
+    project: "Mobile Application",
+    client: "TechFest Albania, Hackathon Winner",
+    langages: "Flutter, Figma",
+    previewLink: "github.com/erginushi/experience_finder",
+  },
+  {
+    id: 19,
+    title: "Punesohu (Web App)",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/punesohu.png",
+    project: "Web App",
+    client: "Personal (WIP)",
+    langages: "React, Firebase",
+    previewLink: "punesohu.web.app/",
+  },
 ];
 
 const Portfolio = () => {
@@ -199,7 +254,7 @@ const Portfolio = () => {
                     className="w-1/3 down-lg:w-1/2 xs:w-full float-left cursor-pointer p-15 xs:px-0"
                     onClick={() => popupToggle(item)}
                   >
-                    <figure className="transition duration-300 h-[220px] rounded-5 relative overflow-hidden">
+                    <figure className="transition duration-300 rounded-5 relative overflow-hidden">
                       <img
                         className="block relative w-full rounded-5 transition duration-300"
                         src={item.img}
