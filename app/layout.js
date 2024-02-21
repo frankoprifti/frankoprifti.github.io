@@ -46,16 +46,16 @@ export default function RootLayout({ children }) {
           <meta name="description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
 
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://metatags.io/" />
+          <meta property="og:url" content="https://frankoprifti.github.io" />
           <meta property="og:title" content="Franko Prifti - React & React Native Developer" />
           <meta property="og:description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
-          <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+          <meta property="og:image" content="assets/img/preview.jpg" />
 
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://metatags.io/" />
+          <meta property="twitter:url" content="https://frankoprifti.github.io" />
           <meta property="twitter:title" content="Franko Prifti - React & React Native Developer" />
           <meta property="twitter:description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
-          <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+          <meta property="twitter:image" content="assets/img/preview.jpg" />
 
         </head>
         <body
