@@ -9,7 +9,7 @@ const SectionContainer = ({ children, id }) => {
   useEffect(() => {
     setTimeout(() => {
       setNavClass(nav === id ? "page--current" : `page--animate-${direction}`);
-    }, 1000);
+    }, 800);
   }, [nav]);
 
   return (
