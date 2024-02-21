@@ -1,0 +1,167 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+  margin: 0;
+  color: #000;
+}
+.header {
+  background-color: #f2f2f2;
+  color: #000;
+  padding: 40px 0 0;
+}
+#separator {
+  margin-bottom: 30px;
+  height: 60px;
+  fill: #f2f2f2;
+}
+.colors > div {
+  display: flex;
+  justify-content: center;
+}
+.colors > div span {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin: 0 3px 7px;
+  display: block;
+}
+#yellow {
+  background-color: #ffff00;
+}
+#red {
+  background-color: #f72b1c;
+}
+#green {
+  background-color: #72b626;
+}
+#green2 {
+  background-color: #16aba2;
+}
+#blue {
+  background-color: #007bff;
+}
+#blue2 {
+  background-color: #34b5e7;
+}
+#pink {
+  background-color: #ff1466;
+}
+#pink2 {
+  background-color: #fb6977;
+}
+#goldenrod {
+  background-color: #daa520;
+}
+#orange {
+  background-color: #fa5b0f;
+}
+.header h1,
+.header h2 {
+  margin: 0;
+}
+.header h1 {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 0 20px;
+}
+.header h2 {
+  font-size: 25px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: #666;
+}
+.items {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+h3 {
+  font-size: 40px;
+  margin: 30px 0 100px;
+}
+
+.items > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items a {
+  max-width: 500px;
+  margin: 0 20px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.4s ease;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.items a:hover {
+  transform: translateY(-10px);
+}
+
+.items a img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.items a > span {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 15px 0 0;
+}
+.items a > span > span {
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  display: block;
+  margin-top: 5px;
+}
+.footer {
+  background-color: #f2f2f2;
+  color: #000;
+  padding: 25px 10px;
+}
+.footer a {
+  color: #000;
+}
+.footer .heart {
+  color: #ffff00;
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 30px 0;
+  }
+  #separator {
+    height: 40px;
+  }
+  .header h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 10px 0 40px;
+  }
+  .items {
+    margin-bottom: 0;
+  }
+  .items a {
+    margin: 0 10px 50px;
+  }
+  .items a > span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

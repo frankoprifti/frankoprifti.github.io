@@ -1,0 +1,148 @@
+.switcher_container #switcher {
+  left: -500px;
+  transition: 0.3s all;
+}
+.switcher_container.switch_open #switcher {
+  left: 0px;
+}
+.switcher_container #showSwitcher {
+  left: 0px;
+  transition: 0.3s all;
+}
+.switcher_container.switch_open #showSwitcher {
+  left: -500px;
+}
+
+.revealer {
+  opacity: 0;
+  z-index: 99 !important;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.gridlist li div {
+  top: -100%;
+  transition: 0.5s all;
+}
+.gridlist li:hover div {
+  top: 0;
+  transition: 0.3s all;
+}
+.slideshow figure {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 222;
+}
+
+.d-none {
+  display: none;
+}
+
+.dark-switch {
+  /* width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 25px;
+  top: 30px;
+  z-index: 99;
+  cursor: pointer;
+}
+@media only screen and (max-width: 991px) {
+  #showSwitcher {
+    top: 15px;
+    display: none !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .dark-switch {
+    top: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .dark-switch {
+    top: 90px;
+    right: 20px;
+  }
+}
+
+.header ul.icon-menu li.desktop-nav-element.active i,
+.header ul.icon-menu li:hover i,
+.dark-switch:hover i {
+  color: black;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.popup_figure {
+  width: 660px;
+}
+@media (max-width: 991px) {
+  .popup_figure {
+    width: 100%;
+  }
+}
+
+/*MAGIC CURSOR*/
+
+.mouse-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  visibility: hidden;
+}
+.cursor-inner {
+  margin-left: -3px;
+  margin-top: -3px;
+  width: 6px;
+  height: 6px;
+  z-index: 100;
+  -webkit-transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.cursor-inner.cursor-hover {
+  margin-left: -40px;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
+}
+.cursor-outer {
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 100;
+  opacity: 0.5;
+  -webkit-transition: all 0.08s ease-out;
+  transition: all 0.08s ease-out;
+}
+.cursor-outer.cursor-hover {
+  opacity: 0;
+}
+.kura_tm_all_wrap[data-magic-cursor="hide"] .mouse-cursor {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -1111;
+}
