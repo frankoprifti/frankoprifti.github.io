@@ -3,6 +3,7 @@ import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Home from "@/components/Home";
 import Portfolio from "@/components/Portfolio";
+import Testimonials from "@/components/Testimonials";
 import Revealer from "@/layouts/Revealer";
 import TunisLayout from "@/layouts/TunisLayout";
 
@@ -26,6 +27,9 @@ const Page = () => {
         {/* Blog Starts */}
         <Blog />
         {/* Blog Ends */}
+        {/* Testimonials Starts */}
+        <Testimonials />
+        {/* Testimonials Ends */}
       </div>
       <Revealer />
     </TunisLayout>
