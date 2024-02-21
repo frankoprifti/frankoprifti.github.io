@@ -26,7 +26,8 @@ const open_sans = Open_Sans({
 export const metadata = {
   title: "Franko Prifti - React & React Native Developer",
   description:
-    "Franko Prifti - React & React Native Developer",
+    "With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps.",
+  keywords: ['Franko Prifti', 'React Developer', 'Frontend Developer']
 };
 
 const fontFamily = `${open_sans.variable} ${poppins.variable}`;
@@ -40,6 +41,22 @@ export default function RootLayout({ children }) {
       >
         <head>
           <TunisCss />
+          <title>Franko Prifti - React & React Native Developer</title>
+          <meta name="title" content="Franko Prifti - React & React Native Developer" />
+          <meta name="description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://metatags.io/" />
+          <meta property="og:title" content="Franko Prifti - React & React Native Developer" />
+          <meta property="og:description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
+          <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://metatags.io/" />
+          <meta property="twitter:title" content="Franko Prifti - React & React Native Developer" />
+          <meta property="twitter:description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
+          <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
         </head>
         <body
           className={`${fontFamily} font-Poppins text-fs-16 font-medium leading-lh-1.6`}
