@@ -79,7 +79,7 @@ const items = [
     img: "assets/img/projects/pokemon.gif",
     project: "Website",
     client: "Personal",
-    langages: "React, CSS Animations, JS DOM Manipulation",
+    langages: "Next.js, React, CSS Animations, JS DOM Manipulation",
     previewLink: "pokemon-ui5.vercel.app/",
   },
   {
