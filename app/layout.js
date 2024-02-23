@@ -9,6 +9,8 @@ import TunisState from "@/context/context";
 import TunisCss from "@/layouts/TunisCss";
 import "@css/styleswitcher.css";
 import { Open_Sans, Poppins } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -56,12 +58,13 @@ export default function RootLayout({ children }) {
           <meta property="twitter:title" content="Franko Prifti - React & React Native Developer" />
           <meta property="twitter:description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
           <meta property="twitter:image" content="https://i.ibb.co/x5GckZT/Screenshot-2024-02-21-at-11-51-04.jpg" />
-
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TJ5MSK1YK"></script>
         </head>
         <body
           className={`${fontFamily} font-Poppins text-fs-16 font-medium leading-lh-1.6`}
         >
           {children}
+          <GoogleAnalytics gaId="G-4TJ5MSK1YK" />
         </body>
       </html>
     </TunisState>
