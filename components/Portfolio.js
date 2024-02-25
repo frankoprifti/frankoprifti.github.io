@@ -138,7 +138,7 @@ const items = [
     previewLink: "movienator.github.io",
   },
   {
-    id: 12,
+    id: 13,
     title: "Movienator Mobile",
     type: "img",
     src: "",
@@ -149,7 +149,7 @@ const items = [
     previewLink: "frankoprifti.itch.io/movienator",
   },
   {
-    id: 13,
+    id: 14,
     title: "Tech News",
     type: "img",
     src: "",
@@ -160,7 +160,7 @@ const items = [
     previewLink: "play.google.com/store/apps/details?id=com.franko.tech_news",
   },
   {
-    id: 14,
+    id: 15,
     title: "Payment Tracker",
     type: "img",
     src: "",
@@ -171,7 +171,7 @@ const items = [
     previewLink: "play.google.com/store/apps/details?id=com.payment_tracker.franko",
   },
   {
-    id: 15,
+    id: 16,
     title: "Frassistant",
     type: "img",
     src: "",
@@ -182,7 +182,7 @@ const items = [
     previewLink: "frassistant-fp.netlify.app",
   },
   {
-    id: 16,
+    id: 17,
     title: "Infinit Net",
     type: "img",
     src: "",
@@ -193,7 +193,7 @@ const items = [
     previewLink: "infinit-net.al",
   },
   {
-    id: 17,
+    id: 18,
     title: "Bicycle Speedo",
     type: "img",
     src: "",
@@ -204,7 +204,7 @@ const items = [
     previewLink: "gitlab.com/frankoprifti/bicycle_app",
   },
   {
-    id: 18,
+    id: 19,
     title: "Experience Finder",
     type: "img",
     src: "",
@@ -215,7 +215,7 @@ const items = [
     previewLink: "github.com/erginushi/experience_finder",
   },
   {
-    id: 19,
+    id: 20,
     title: "Punesohu (Web App)",
     type: "img",
     src: "",
@@ -226,6 +226,7 @@ const items = [
     previewLink: "punesohu.web.app/",
   },
 ];
+
 
 const Portfolio = () => {
   const { popupToggle } = useContext(TunisContext);

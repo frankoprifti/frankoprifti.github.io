@@ -1,5 +1,6 @@
 "use client";
 
+import { sendGAEvent } from "@next/third-parties/google";
 import { createContext, useCallback, useReducer } from "react";
 
 // Create Context
@@ -182,6 +183,7 @@ const TunisState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const changeNav = useCallback((value, toggleValue) => {
+    sendGAEvent({ event: 'buttonClicked', value });
     dispatch({
       type: NAV,
       payload: value,
