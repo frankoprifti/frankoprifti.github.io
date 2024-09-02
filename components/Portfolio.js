@@ -193,17 +193,6 @@ const items = [
     previewLink: "infinit-net.al",
   },
   {
-    id: 18,
-    title: "Bicycle Speedo",
-    type: "img",
-    src: "",
-    img: "assets/img/projects/bicycyle-app.png",
-    project: "Mobile Application",
-    client: "Personal",
-    langages: "Flutter, Figma",
-    previewLink: "gitlab.com/frankoprifti/bicycle_app",
-  },
-  {
     id: 19,
     title: "Experience Finder",
     type: "img",
