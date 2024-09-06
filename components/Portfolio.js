@@ -247,6 +247,17 @@ const items = [
     langages: "Next.js, React",
     previewLink: "https://buildingspares.netlify.app/",
   },
+  {
+    id: 24,
+    title: "Fitness App",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/fitnessapp.gif",
+    project: "Mobile App",
+    client: "Onemor",
+    langages: "React Native, Expo",
+    previewLink: "https://github.com/frankoprifti/fitness-app",
+  },
 ];
 
 
