@@ -6,6 +6,17 @@ import SectionTitle from "./SectionTitle";
 
 const items = [
   {
+    id: 0,
+    title: "InsightQR",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/insight-qr.jpg",
+    project: "Web Application",
+    client: "InsightQR",
+    langages: "NextJS, React, Firebase",
+    previewLink: "insightqr.xyz",
+  },
+  {
     id: 1,
     title: "FITSQD",
     type: "img",
@@ -290,9 +301,10 @@ const Portfolio = () => {
                   >
                     <figure className="transition duration-300 rounded-5 relative overflow-hidden">
                       <img
-                        className="block relative w-full rounded-5 transition duration-300"
+                        className="block relative w-full rounded-5 transition duration-300  object-cover"
                         src={item.img}
                         alt=""
+                        style={{ height: 200 }}
                       />
                       <div className="absolute w-full h-full flex items-center justify-center bg-accent">
                         <span className="uppercase text-fs-18 text-black-1">

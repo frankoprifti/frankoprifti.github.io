@@ -68,9 +68,10 @@ const Popup = () => {
               </div>
             ) : (
               <img
-                className="block w-full rounded-5"
+                className="block w-full rounded-5 object-contain"
                 src={popup.img}
                 alt="Portolio Image"
+                style={{ maxHeight: 400, objectFit: 'contain' }}
               />
             )}
 
