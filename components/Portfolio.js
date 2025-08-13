@@ -269,6 +269,28 @@ const items = [
     langages: "React Native, Expo",
     previewLink: "https://github.com/frankoprifti/fitness-app",
   },
+  {
+    id: 25,
+    title: "truu",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/nhs2.png",
+    project: "Mobile App",
+    client: "Truu",
+    langages: "React Native, Expo",
+    previewLink: "https://www.linkedin.com/company/truu-id/about/",
+  },
+    {
+    id: 26,
+    title: "Jennis",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/jennis.jpeg",
+    project: "Mobile App",
+    client: "Jennis",
+    langages: "React Native, Expo",
+    previewLink: "https://www.linkedin.com/company/jennis-cyclemapping/",
+  },
 ];
 
 

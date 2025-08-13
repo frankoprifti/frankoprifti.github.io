@@ -33,7 +33,7 @@ const Home = ({ authorImage }) => {
               </span>
             </h1>
             <p className="font-Open-sans mt-15 mb-28 leading-lh-35 down-lg:mt-2.5 down-lg:mb-23 down-lg:text-fs-15 down-lg:leading-lh-30">
-              With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps.
+             With over 7 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications.
             </p>
             <div
               id="link-about"

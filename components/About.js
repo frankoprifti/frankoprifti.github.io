@@ -33,7 +33,7 @@ const counters = [
   {
     id: 1,
     title: 'years of <span className="block">experience</span>',
-    value: "6",
+    value: "7",
   },
   {
     id: 2,

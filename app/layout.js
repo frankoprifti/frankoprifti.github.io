@@ -28,7 +28,7 @@ const open_sans = Open_Sans({
 export const metadata = {
   title: "Franko Prifti - React & React Native Developer",
   description:
-    "With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps.",
+    "With over 7 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications.",
   keywords: ['Franko Prifti', 'React Developer', 'Frontend Developer']
 };
 
@@ -45,18 +45,18 @@ export default function RootLayout({ children }) {
           <TunisCss />
           <title>Franko Prifti - React & React Native Developer</title>
           <meta name="title" content="Franko Prifti - React & React Native Developer" />
-          <meta name="description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
+          <meta name="description" content="With over 7 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications." />
 
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://frankoprifti.github.io" />
           <meta property="og:title" content="Franko Prifti - React & React Native Developer" />
-          <meta property="og:description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
+          <meta property="og:description" content="With over 7 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications." />
           <meta property="og:image" content="https://i.ibb.co/x5GckZT/Screenshot-2024-02-21-at-11-51-04.jpg" />
 
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://frankoprifti.github.io" />
           <meta property="twitter:title" content="Franko Prifti - React & React Native Developer" />
-          <meta property="twitter:description" content="With 6+ years in web and mobile dev, I specialize in React, React Native, Node.js, Firebase, and more. I've delivered cross-platform apps with React Native and Flutter, and built server-side solutions with Node.js and Firebase. Holding a Master's in Business Informatics from the University of Tirana, I'm dedicated to mastering new tech and crafting top-notch apps." />
+          <meta property="twitter:description" content="With over 7 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications." />
           <meta property="twitter:image" content="https://i.ibb.co/x5GckZT/Screenshot-2024-02-21-at-11-51-04.jpg" />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TJ5MSK1YK"></script>
         </head>
