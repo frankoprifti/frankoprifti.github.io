@@ -104,7 +104,7 @@ const Contact = () => {
                 <span className="block opacity-80 uppercase font-normal">
                   call me / whatsapp me
                 </span>
-                +355697649038
+                +355696744342
               </div>
               <ul className="-ml-5 pt-4 mb-48">
                 {socials.map((social) => (
