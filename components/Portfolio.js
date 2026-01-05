@@ -7,6 +7,28 @@ import SectionTitle from "./SectionTitle";
 const items = [
   {
     id: 0,
+    title: "Cars Insight Mobile",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/cars-insight-mobile.webp",
+    project: "Mobile Application",
+    client: "Cars Insight",
+    langages: "React Native, Firebase, Admob",
+    previewLink: "https://play.google.com/store/apps/details?id=io.github.frankoprifti.carsinsight",
+  },
+  {
+    id: 1,
+    title: "Cars Insight",
+    type: "img",
+    src: "",
+    img: "assets/img/projects/cars-insight.jpg",
+    project: "Web Application",
+    client: "Cars Insight",
+    langages: "NextJS, React, Firebase",
+    previewLink: "carsinsight.xyz",
+  },
+  {
+    id: 2,
     title: "InsightQR",
     type: "img",
     src: "",
@@ -17,7 +39,7 @@ const items = [
     previewLink: "insightqr.xyz",
   },
   {
-    id: 1,
+    id: 3,
     title: "FITSQD",
     type: "img",
     src: "",
@@ -28,7 +50,7 @@ const items = [
     previewLink: "play.google.com/store/apps/details?id=com.sqd",
   },
   {
-    id: 2,
+    id: 4,
     title: "Parlament.al",
     type: "img",
     src: "",
@@ -39,7 +61,7 @@ const items = [
     previewLink: "www.parlament.al",
   },
   {
-    id: 3,
+    id: 5,
     title: "Rista Group",
     type: "img",
     src: "",
@@ -50,7 +72,7 @@ const items = [
     previewLink: "www.ristagroup.org",
   },
   {
-    id: 4,
+    id: 6,
     title: "Arden-Net",
     type: "img",
     src: "",
@@ -61,7 +83,7 @@ const items = [
     previewLink: "arden-net.netlify.app",
   },
   {
-    id: 5,
+    id: 7,
     title: "Internet Infinity",
     type: "img",
     src: "",
@@ -72,7 +94,7 @@ const items = [
     previewLink: "infinityisp.al",
   },
   {
-    id: 6,
+    id: 8,
     title: "Horizont Labs",
     type: "img",
     src: "",
@@ -83,7 +105,7 @@ const items = [
     previewLink: "horizontlabs.com",
   },
   {
-    id: 7,
+    id: 9,
     title: "Pokemon UI",
     type: "img",
     src: "",
@@ -94,7 +116,7 @@ const items = [
     previewLink: "pokemon-ui5.vercel.app/",
   },
   {
-    id: 8,
+    id: 10,
     title: "Dibbery Landing Page",
     type: "img",
     src: "",
@@ -105,7 +127,7 @@ const items = [
     previewLink: "dibbery.co.uk",
   },
   {
-    id: 9,
+    id: 11,
     title: "iiNDYVERSE Artist Console",
     type: "img",
     src: "",
@@ -116,7 +138,7 @@ const items = [
     previewLink: "demo.iindy.co",
   },
   {
-    id: 10,
+    id: 12,
     title: "iiNDYVERSE Artist Landing",
     type: "img",
     src: "",
@@ -127,7 +149,7 @@ const items = [
     previewLink: "tommisch.iindy.co",
   },
   {
-    id: 11,
+    id: 13,
     title: "iiNDYVERSE Claim Collection & Wallet",
     type: "img",
     src: "",
@@ -138,7 +160,7 @@ const items = [
     previewLink: "demo.api.iindy.co/c/cKv4qYK",
   },
   {
-    id: 12,
+    id: 14,
     title: "Movienator Web",
     type: "img",
     src: "",
@@ -149,7 +171,7 @@ const items = [
     previewLink: "movienator.github.io",
   },
   {
-    id: 13,
+    id: 15,
     title: "Movienator Mobile",
     type: "img",
     src: "",
@@ -160,7 +182,7 @@ const items = [
     previewLink: "frankoprifti.itch.io/movienator",
   },
   {
-    id: 14,
+    id: 16,
     title: "Tech News",
     type: "img",
     src: "",
@@ -171,7 +193,7 @@ const items = [
     previewLink: "play.google.com/store/apps/details?id=com.franko.tech_news",
   },
   {
-    id: 15,
+    id: 17,
     title: "Payment Tracker",
     type: "img",
     src: "",
@@ -182,7 +204,7 @@ const items = [
     previewLink: "play.google.com/store/apps/details?id=com.payment_tracker.franko",
   },
   {
-    id: 16,
+    id: 18,
     title: "Frassistant",
     type: "img",
     src: "",
@@ -193,7 +215,7 @@ const items = [
     previewLink: "frassistant-fp.netlify.app",
   },
   {
-    id: 17,
+    id: 19,
     title: "Infinit Net",
     type: "img",
     src: "",
@@ -204,7 +226,7 @@ const items = [
     previewLink: "infinit-net.al",
   },
   {
-    id: 19,
+    id: 20,
     title: "Experience Finder",
     type: "img",
     src: "",
@@ -215,7 +237,7 @@ const items = [
     previewLink: "github.com/erginushi/experience_finder",
   },
   {
-    id: 20,
+    id: 21,
     title: "Punesohu (Web App)",
     type: "img",
     src: "",
@@ -226,7 +248,7 @@ const items = [
     previewLink: "punesohu.web.app/",
   },
   {
-    id: 21,
+    id: 22,
     title: "Bicycle Speedo",
     type: "img",
     src: "",
@@ -237,7 +259,7 @@ const items = [
     previewLink: "gitlab.com/frankoprifti/bicycle_app",
   },
   {
-    id: 22,
+    id: 23,
     title: "Innoscripta News Aggregator",
     type: "img",
     src: "",
@@ -248,7 +270,7 @@ const items = [
     previewLink: "https://innoscripta-task.vercel.app/",
   },
   {
-    id: 23,
+    id: 24,
     title: "Building Spares",
     type: "img",
     src: "",
@@ -259,7 +281,7 @@ const items = [
     previewLink: "https://buildingspares.netlify.app/",
   },
   {
-    id: 24,
+    id: 25,
     title: "Fitness App",
     type: "img",
     src: "",
@@ -270,7 +292,7 @@ const items = [
     previewLink: "https://github.com/frankoprifti/fitness-app",
   },
   {
-    id: 25,
+    id: 26,
     title: "truu",
     type: "img",
     src: "",
@@ -280,8 +302,8 @@ const items = [
     langages: "React Native, Expo",
     previewLink: "https://www.linkedin.com/company/truu-id/about/",
   },
-    {
-    id: 26,
+  {
+    id: 27,
     title: "Jennis",
     type: "img",
     src: "",
