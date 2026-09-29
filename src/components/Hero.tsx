@@ -26,43 +26,15 @@ const tokens: { text: string; x: string; y: string; depth: number; dur: number; 
   { text: "npx expo", x: "20%", y: "36%", depth: -8, dur: 20, hideSm: true },
 ];
 
-const GLYPHS = "!<>-_\\/[]{}=+*^?#01";
-
-/** Characters resolve from random glyphs into the real text, left to right. */
-function useDecode(text: string, enabled: boolean, duration = 900) {
-  const [out, setOut] = useState(() =>
-    text.replace(/\S/g, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)])
-  );
+/** Types `length` characters once, returning how many are visible. */
+function useTypeOnce(length: number, enabled: boolean, speed = 110, startDelay = 300) {
+  const [count, setCount] = useState(enabled ? 0 : length);
   useEffect(() => {
-    if (!enabled) return;
-    let frame = 0;
-    const t0 = performance.now();
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - t0) / duration);
-      const settled = Math.floor(p * text.length);
-      setOut(
-        [...text]
-          .map((ch, i) =>
-            ch === " " || ch === "\n" || i < settled
-              ? ch
-              : GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
-          )
-          .join("")
-      );
-      if (p < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    // rAF is throttled in background tabs; never leave the name scrambled.
-    const settle = setTimeout(() => {
-      cancelAnimationFrame(frame);
-      setOut(text);
-    }, duration + 150);
-    return () => {
-      cancelAnimationFrame(frame);
-      clearTimeout(settle);
-    };
-  }, [text, enabled, duration]);
-  return enabled ? out : text;
+    if (!enabled || count >= length) return;
+    const id = setTimeout(() => setCount((c) => c + 1), count === 0 ? startDelay : speed);
+    return () => clearTimeout(id);
+  }, [count, length, enabled, speed, startDelay]);
+  return enabled ? count : length;
 }
 
 function useTypewriter(words: string[], enabled: boolean) {
@@ -92,9 +64,19 @@ function useTypewriter(words: string[], enabled: boolean) {
 
 export function Hero() {
   const reduced = useReducedMotion();
-  const first = useDecode("Franko", !reduced, 800);
-  const last = useDecode("Prifti", !reduced, 1100);
   const role = useTypewriter(roles, !reduced);
+  const [firstName, lastName] = profile.name.split(" ");
+  const typed = useTypeOnce(firstName.length + lastName.length + 1, !reduced);
+  const firstTyped = Math.min(typed, firstName.length);
+  const lastTyped = Math.max(0, typed - firstName.length);
+  const done = typed > firstName.length + lastName.length;
+  const cursor = (
+    <span
+      className={`inline-block h-[0.75em] w-[0.08em] translate-y-[0.04em] bg-accent motion-reduce:hidden ${
+        done ? "sc-blink ml-2" : "ml-[0.04em]"
+      }`}
+    />
+  );
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -165,11 +147,17 @@ export function Hero() {
               aria-label={profile.name}
               className="mt-8 text-[clamp(3.25rem,10vw,8.5rem)] font-semibold leading-[0.88] tracking-[-0.055em]"
             >
-              <span aria-hidden className="block whitespace-pre">{first}</span>
-              <span aria-hidden className="block whitespace-pre">
-                {last}
-                <span className="text-accent">.</span>
-                <span className="sc-blink ml-2 inline-block h-[0.75em] w-[0.08em] translate-y-[0.04em] bg-accent motion-reduce:hidden" />
+              <span aria-hidden className="block">
+                {firstName.slice(0, firstTyped)}
+                {typed < firstName.length && cursor}
+                <span className="invisible">{firstName.slice(firstTyped)}</span>
+              </span>
+              <span aria-hidden className="block">
+                {lastName.slice(0, lastTyped)}
+                {typed >= firstName.length && !done && cursor}
+                <span className="invisible">{lastName.slice(lastTyped)}</span>
+                <span className={`text-accent ${done ? "" : "invisible"}`}>.</span>
+                {done && cursor}
               </span>
             </h1>
 
