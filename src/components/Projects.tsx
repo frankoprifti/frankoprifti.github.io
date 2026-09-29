@@ -107,7 +107,7 @@ function ProjectCard({
           {p.image && (
             <img
               src={p.image}
-              alt=""
+              alt={`${p.title} screenshot`}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
