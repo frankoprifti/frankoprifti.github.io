@@ -2,9 +2,9 @@ export const profile = {
   name: "Franko Prifti",
   username: "frankoprifti",
   avatar: "https://avatars.githubusercontent.com/u/29095780?v=4",
-  title: "Senior React Native Engineer",
+  title: "Senior Software Engineer",
   headline:
-    "Senior React Native Engineer @ Lendable · Expertise in React.js & React Native",
+    "Senior Software Engineer @ Lendable · Expertise in React.js & React Native",
   tagline:
     "I lead the development of polished, production-grade mobile and web apps with React Native, React, and TypeScript.",
   bio: "With over 8 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications.",
@@ -59,7 +59,7 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: "Senior React Native Engineer",
+    role: "Senior Software Engineer",
     company: "Lendable",
     period: "Jan 2026 - Present",
     location: "London, United Kingdom",
