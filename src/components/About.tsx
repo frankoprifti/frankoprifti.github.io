@@ -1,64 +1,48 @@
 import { profile, stats } from "../data/profile";
+import { Reveal } from "./Reveal";
+import { Section } from "./Section";
 
 export function About() {
   return (
-    <section id="about" className="py-20 border-b border-bd-muted">
-      <div className="max-w-[1180px] mx-auto px-4 md:px-6">
-        <SectionHeading kicker="01" title="About me" />
-
-        <div className="grid md:grid-cols-[1.4fr_1fr] gap-10 mt-10">
-          <div className="space-y-4 text-fg-default leading-relaxed">
-            <p>{profile.bio}</p>
-            <p className="text-fg-muted">
-              I hold a Master's degree in Business Informatics from the
-              University of Tirana and have spent the last seven years working
-              with startups, agencies, and independent clients across web and
-              mobile. I care about clean architecture, thoughtful UX, and
-              shipping things that actually work in production.
-            </p>
-          </div>
-
-          <ul className="grid grid-cols-2 gap-3">
-            {stats.map((s) => (
-              <li
-                key={s.label}
-                className="border border-bd-default rounded-lg p-5 bg-canvas-overlay hover:border-accent-fg transition-colors"
-              >
-                <div className="text-3xl font-semibold text-fg-default">
-                  {s.value}
-                </div>
-                <div className="text-xs uppercase tracking-wider text-fg-muted mt-2">
-                  {s.label}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <Section
+      id="about"
+      index="01"
+      label="About"
+      title={
+        <>
+          Eight years building mobile and web products{" "}
+          <span className="text-muted">that hold up in production.</span>
+        </>
+      }
+    >
+      <div className="grid gap-10 md:grid-cols-9">
+        <Reveal className="space-y-5 text-lg leading-relaxed text-muted md:col-span-6">
+          <p className="text-fg">{profile.bio}</p>
+          <p>
+            I've spent my career with startups, agencies, and independent
+            clients. I lead teams, own architecture, and I am usually the
+            person clients call. I care about clean architecture, thoughtful UX, and
+            shipping things that actually work.
+          </p>
+        </Reveal>
       </div>
-    </section>
-  );
-}
 
-export function SectionHeading({
-  kicker,
-  title,
-  subtitle,
-}: {
-  kicker: string;
-  title: string;
-  subtitle?: string;
-}) {
-  return (
-    <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div>
-        <div className="font-mono text-xs text-accent-fg mb-2">{kicker}.</div>
-        <h2 className="text-3xl md:text-4xl font-semibold text-fg-default tracking-tight">
-          {title}
-        </h2>
-        {subtitle && (
-          <p className="mt-2 text-fg-muted max-w-2xl">{subtitle}</p>
-        )}
-      </div>
-    </header>
+      <dl className="mt-16 grid grid-cols-2 border-t border-line md:grid-cols-4">
+        {stats.map((s, i) => (
+          <Reveal
+            key={s.label}
+            delay={i * 80}
+            className={`py-8 pr-4 ${i % 2 === 1 ? "pl-4 md:pl-0" : ""} ${
+              i > 1 ? "border-t border-line md:border-t-0" : ""
+            }`}
+          >
+            <dt className="label">{s.label}</dt>
+            <dd className="mt-3 text-5xl font-semibold tracking-[-0.04em] md:text-6xl">
+              {s.value}
+            </dd>
+          </Reveal>
+        ))}
+      </dl>
+    </Section>
   );
 }

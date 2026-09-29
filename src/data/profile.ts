@@ -7,7 +7,7 @@ export const profile = {
     "Senior React Native Engineer @ Lendable · Expertise in React.js & React Native",
   tagline:
     "I lead the development of polished, production-grade mobile and web apps with React Native, React, and TypeScript.",
-  bio: "With over 7 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications.",
+  bio: "With over 8 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications.",
   currentCompanies: "Lendable",
   location: "Tirana, Albania",
   timezone: "UTC +02:00",
@@ -24,23 +24,29 @@ export const profile = {
 };
 
 export const stats = [
-  { label: "Years of experience", value: "7+" },
+  { label: "Years of experience", value: "8+" },
   { label: "Projects completed", value: "30+" },
   { label: "Companies worked with", value: "9" },
   { label: "Core technologies", value: "10+" },
 ];
 
-export const skills = [
-  { name: "React (Next.js)", level: 100 },
-  { name: "React Native", level: 100 },
-  { name: "TypeScript", level: 100 },
-  { name: "JavaScript", level: 100 },
-  { name: "CSS / SCSS", level: 95 },
-  { name: "Node.js", level: 80 },
-  { name: "AWS (S3, Amplify, Cognito)", level: 75 },
-  { name: "Flutter", level: 75 },
-  { name: "Firebase", level: 80 },
-  { name: "Jest / Playwright", level: 80 },
+export const skillGroups = [
+  {
+    name: "Mobile",
+    items: ["React Native", "Expo", "Flutter", "HealthKit / Google Fit", "Push (FCM)"],
+  },
+  {
+    name: "Web",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "CSS / SCSS"],
+  },
+  {
+    name: "Backend & cloud",
+    items: ["Node.js", "Firebase", "AWS S3", "AWS Amplify", "AWS Cognito"],
+  },
+  {
+    name: "Quality & delivery",
+    items: ["Jest", "Playwright", "Maestro", "CI/CD", "Code review"],
+  },
 ];
 
 export type ExperienceEntry = {
@@ -55,7 +61,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Senior React Native Engineer",
     company: "Lendable",
-    period: "Jan 2026 — Present",
+    period: "Jan 2026 - Present",
     location: "London, United Kingdom",
     description:
       "Building and shipping React Native features for Lendable's consumer fintech app, focused on performance, reliability, and clean architecture.",
@@ -63,15 +69,15 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Senior Frontend Developer",
     company: "ReN AI",
-    period: "Jan 2025 — Present",
+    period: "Jan 2025 - Present",
     location: "London, United Kingdom",
     description:
-      "Leading the development of a dynamic, AI-powered interface for seamless interaction with a large language model — a core component reused across multiple products to enable intelligent, context-aware experiences.",
+      "Leading the development of a dynamic, AI-powered interface for seamless interaction with a large language model. It is a core component reused across multiple products to enable intelligent, context-aware experiences.",
   },
   {
     role: "Senior Frontend Developer",
     company: "Horizont Labs",
-    period: "Jul 2019 — Jan 2026",
+    period: "Jul 2019 - Jan 2026",
     location: "London, United Kingdom",
     description:
       "Led full-stack delivery across React, Next.js, React Native, Flutter, Node.js, Firebase, AWS (S3, Amplify, Cognito), TypeScript, Checkly, Jest, and Playwright. Acted as team lead and primary client contact, owning architecture, documentation, and code quality.",
@@ -79,7 +85,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Frontend Instructor (4h / week)",
     company: "Brainster",
-    period: "Mar 2024 — Oct 2025",
+    period: "Mar 2024 - Oct 2025",
     location: "Tirana, Albania",
     description:
       "Taught modern frontend (React, TypeScript, tooling) to bootcamp cohorts, mentoring students through assignments and capstone projects.",
@@ -87,31 +93,31 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Lead Frontend Developer",
     company: "Coachees",
-    period: "Nov 2024 — Apr 2025",
+    period: "Nov 2024 - Apr 2025",
     location: "London, United Kingdom",
     description:
-      "Owned architecture and delivery of a React Native mobile app — leading a small team, integrating third-party APIs, running CI/CD and code reviews, and aligning the technical roadmap with Product, Design, and Business.",
+      "Owned architecture and delivery of a React Native mobile app. Led a small team, integrating third-party APIs, running CI/CD and code reviews, and aligning the technical roadmap with Product, Design, and Business.",
   },
   {
     role: "Senior Frontend Developer",
     company: "Jennis",
-    period: "Jun 2022 — Nov 2022",
+    period: "Jun 2022 - Nov 2022",
     location: "London, United Kingdom",
     description:
-      "Refactored the MVP of a React Native women's hormonal-health platform — integrated native HealthKit (iOS) and Google Fit (Android), shipped OAuth 2.0 with Keychain/Keystore credential storage, and built a Firebase Cloud Messaging push system.",
+      "Refactored the MVP of a React Native women's hormonal-health platform. Integrated native HealthKit (iOS) and Google Fit (Android), shipped OAuth 2.0 with Keychain/Keystore credential storage, and built a Firebase Cloud Messaging push system.",
   },
   {
     role: "Senior Frontend Developer",
     company: "truu",
-    period: "Aug 2021 — May 2022",
+    period: "Aug 2021 - May 2022",
     location: "London, United Kingdom",
     description:
-      "Deployed a TypeScript / React.js dashboard and React Native app for secure digital credential management. Implemented Digital Credential flows with NHS Identity, biometric unlock, certificate pinning, and offline token-refresh — including IE11 web compatibility for NHS rollout.",
+      "Deployed a TypeScript / React.js dashboard and React Native app for secure digital credential management. Implemented Digital Credential flows with NHS Identity, biometric unlock, certificate pinning, and offline token refresh, including IE11 web compatibility for NHS rollout.",
   },
   {
     role: "Lead Frontend Developer",
     company: "iiNDYVERSE",
-    period: "Jul 2019 — Jul 2021",
+    period: "Jul 2019 - Jul 2021",
     location: "United Kingdom",
     description:
       "Defined the frontend architecture and tech stack. Built a modular React component system, introduced Next.js for SSR/SEO, and integrated AWS S3, Amplify, and Cognito for hosting and authentication.",
@@ -119,7 +125,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Frontend Developer",
     company: "Semos",
-    period: "Jul 2018 — Jun 2019",
+    period: "Jul 2018 - Jun 2019",
     location: "Tirana, Albania",
     description:
       "Built React web apps and React Native mobile apps with consistent cross-platform UX. Integrated Firebase Cloud Messaging for real-time push notifications.",
@@ -130,12 +136,12 @@ export const education = [
   {
     degree: "Master's degree, Business Informatics",
     school: "University of Tirana",
-    period: "Nov 2019 — Jul 2020",
+    period: "Nov 2019 - Jul 2020",
   },
   {
     degree: "Bachelor's degree, Computer Science",
     school: "Universiteti i Tiranës",
-    period: "2016 — 2019",
+    period: "2016 - 2019",
   },
 ];
 
@@ -159,28 +165,49 @@ export type Project = {
   category: ProjectCategory;
   url?: string;
   image?: string;
+  featured?: boolean;
 };
 
 const PROJECT_IMG_BASE = "/projects";
 
 export const projects: Project[] = [
   {
-    title: "Zable — Mobile Finance",
+    title: "Zable Mobile Finance",
     description:
       "Consumer credit & loans app by Lendable, used by 1M+ customers (4.8★ on Google Play). Building React Native features focused on performance and clean architecture.",
     tags: ["React Native", "TypeScript", "Fintech"],
     category: "Mobile",
     url: "https://play.google.com/store/apps/details?id=com.levelcard",
     image: `${PROJECT_IMG_BASE}/zable.jpg`,
+    featured: true,
   },
   {
     title: "ReN AI",
     description:
-      "Financial intelligence platform — stock analysis, peer comparison, ratings, document analysis, and AI-powered insights for public companies.",
+      "Financial intelligence platform with stock analysis, peer comparison, ratings, document analysis, and AI-powered insights for public companies.",
     tags: ["React", "TypeScript", "LLM"],
     category: "Web",
     url: "https://app.myrenx.ai",
     image: `${PROJECT_IMG_BASE}/ren-ai.png`,
+    featured: true,
+  },
+  {
+    title: "DriveTrack",
+    description:
+      "Automatic trip tracking that starts when your car's Bluetooth connects. Speed-mapped routes, driving scores, parking spot memory and shareable trips, all stored on your device.",
+    tags: ["iOS & Android", "Bluetooth", "On-device data"],
+    category: "Mobile",
+    url: "https://play.google.com/store/apps/details?id=io.github.frankoprifti.drivetrack",
+    image: `${PROJECT_IMG_BASE}/drivetrack-app.jpg`,
+  },
+  {
+    title: "DriveTrack Landing",
+    description:
+      "Marketing site for DriveTrack with animated feature stories and a web viewer that parses trip exports in the browser, so nothing is uploaded.",
+    tags: ["React", "MapLibre", "sql.js"],
+    category: "Web",
+    url: "https://drivetrackfp.web.app/",
+    image: `${PROJECT_IMG_BASE}/drivetrack-landing.jpg`,
   },
   {
     title: "Jennis",
@@ -194,7 +221,7 @@ export const projects: Project[] = [
   {
     title: "truu",
     description:
-      "Secure digital credential management for NHS — biometric unlock, certificate pinning, offline tokens.",
+      "Secure digital credential management for NHS, with biometric unlock, certificate pinning, offline tokens.",
     tags: ["React", "React Native", "NHS Identity"],
     category: "Mobile",
     url: "https://www.linkedin.com/company/truu-id/about/",
@@ -203,7 +230,7 @@ export const projects: Project[] = [
   {
     title: "iiNDYVERSE Artist Console",
     description:
-      "Dashboard for independent artists — managing releases, royalties, and audience growth.",
+      "Dashboard for independent artists for managing releases, royalties, and audience growth.",
     tags: ["React", "Next.js", "AWS"],
     category: "Web",
     url: "https://demo.iindy.co",
@@ -212,7 +239,7 @@ export const projects: Project[] = [
   {
     title: "iiNDYVERSE Artist Landing",
     description:
-      "Artist landing page template — customizable showcase for releases, tour dates, and merch.",
+      "Artist landing page template: a customizable showcase for releases, tour dates, and merch.",
     tags: ["React", "Next.js"],
     category: "Web",
     url: "https://tommisch.iindy.co",
@@ -239,7 +266,7 @@ export const projects: Project[] = [
   {
     title: "Cars Insight Mobile",
     description:
-      "Companion mobile app for inspectors — capture photos and submit reports on the go.",
+      "Companion mobile app for inspectors to capture photos and submit reports on the go.",
     tags: ["React Native", "Firebase", "AdMob"],
     category: "Mobile",
     url: "https://play.google.com/store/apps/details?id=io.github.frankoprifti.carsinsight",
@@ -266,7 +293,7 @@ export const projects: Project[] = [
   {
     title: "Parlament.al",
     description:
-      "Albanian Parliament transparency portal — votes, sessions, and member profiles.",
+      "Albanian Parliament transparency portal covering votes, sessions, and member profiles.",
     tags: ["React"],
     category: "Web",
     url: "https://www.parlament.al",
@@ -275,7 +302,7 @@ export const projects: Project[] = [
   {
     title: "Movienator Web",
     description:
-      "Discover, rate, and build watchlists for movies — built with Flutter web.",
+      "Discover, rate, and build watchlists for movies, built with Flutter web.",
     tags: ["Flutter"],
     category: "Web",
     url: "https://movienator.github.io",
@@ -284,7 +311,7 @@ export const projects: Project[] = [
   {
     title: "Movienator Mobile",
     description:
-      "Movie discovery on the go — offline watchlists and personalized recommendations.",
+      "Movie discovery on the go, with offline watchlists and personalized recommendations.",
     tags: ["Flutter"],
     category: "Mobile",
     url: "https://frankoprifti.itch.io/movienator",
@@ -320,7 +347,7 @@ export const projects: Project[] = [
   {
     title: "Tech News",
     description:
-      "Curated tech news mobile app powered by a WordPress API — built with Flutter.",
+      "Curated tech news mobile app powered by a WordPress API, built with Flutter.",
     tags: ["Flutter", "WordPress API"],
     category: "Mobile",
     url: "https://play.google.com/store/apps/details?id=com.franko.tech_news",
@@ -329,7 +356,7 @@ export const projects: Project[] = [
   {
     title: "Payment Tracker",
     description:
-      "Personal finance tracker for recurring payments and subscriptions — Flutter.",
+      "Personal finance tracker for recurring payments and subscriptions, built with Flutter.",
     tags: ["Flutter"],
     category: "Mobile",
     url: "https://play.google.com/store/apps/details?id=com.payment_tracker.franko",
@@ -346,7 +373,7 @@ export const projects: Project[] = [
   {
     title: "Experience Finder",
     description:
-      "Discovery platform for booking unique experiences — TechFest Albania hackathon winner.",
+      "Discovery platform for booking unique experiences. Won the TechFest Albania hackathon.",
     tags: ["Flutter", "Figma"],
     category: "Mobile",
     url: "https://github.com/erginushi/experience_finder",
@@ -362,7 +389,7 @@ export const projects: Project[] = [
   },
   {
     title: "Bicycle Speedo",
-    description: "Mobile speedometer and ride tracker for cyclists — Flutter.",
+    description: "Mobile speedometer and ride tracker for cyclists, built with Flutter.",
     tags: ["Flutter", "Figma"],
     category: "Mobile",
     url: "https://gitlab.com/frankoprifti/bicycle_app",
@@ -432,7 +459,7 @@ export const testimonials = [
     name: "Kledi Kola",
     role: "CEO, Arden-Net",
     quote:
-      "Franko has consistently been there for me whenever I've required assistance — always swift, eager, and thoughtful in his approach.",
+      "Franko has consistently been there for me whenever I've required assistance, always swift, eager, and thoughtful in his approach.",
     avatar:
       "https://api.dicebear.com/7.x/initials/svg?seed=Kledi%20Kola&backgroundColor=1f6feb&textColor=ffffff",
   },

@@ -1,0 +1,226 @@
+/* Looping product-story scenes. Each element's resting style is its final,
+   readable state; keyframes only run while the scene is on screen and are
+   removed entirely under reduced motion. */
+
+.scene:not(.is-playing) *,
+.scene:not(.is-playing) {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene,
+  .scene * {
+    animation: none !important;
+  }
+}
+
+/* Phone frame */
+.phone {
+  position: relative;
+  width: var(--phone-w, 280px);
+  aspect-ratio: var(--phone-ratio, 9 / 19);
+  border-radius: calc(var(--phone-w, 280px) * 0.16);
+  padding: 9px;
+  background: #0b0b0d;
+  box-shadow:
+    0 0 0 1px rgb(var(--line)),
+    0 30px 60px -20px rgb(0 0 0 / 0.35),
+    0 12px 24px -12px rgb(0 0 0 / 0.25);
+  flex-shrink: 0;
+}
+.phone-screen {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: calc(var(--phone-w, 280px) * 0.16 - 9px);
+  background: rgb(var(--surface));
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+.phone-island {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 32%;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #0b0b0d;
+  z-index: 30;
+}
+
+/* Shared loops */
+.sc-bob { animation: sc-bob 3.2s ease-in-out infinite; }
+.sc-bob-late { animation: sc-bob 3.2s ease-in-out -1.6s infinite; }
+@keyframes sc-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.sc-dots span { animation: sc-dot 1s ease-in-out infinite; }
+.sc-dots span:nth-child(2) { animation-delay: 0.15s; }
+.sc-dots span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes sc-dot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-3px); opacity: 1; } }
+
+.sc-spin { animation: sc-spin 0.9s linear infinite; }
+@keyframes sc-spin { to { transform: rotate(360deg); } }
+
+/* Hero: stack drops in, build bar fills, tap ship, notification lands */
+.sc-drop1 { animation: sc-drop1 12s cubic-bezier(.3,0,.3,1) infinite; }
+@keyframes sc-drop1 { 0%, 4% { opacity: 0; transform: translateY(-420px); } 5% { opacity: 1; } 9% { transform: translateY(0); } 10.5% { transform: translateY(-7px); } 12%, 95% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; transform: none; } }
+.sc-drop2 { animation: sc-drop2 12s cubic-bezier(.3,0,.3,1) infinite; }
+@keyframes sc-drop2 { 0%, 11% { opacity: 0; transform: translateY(-420px); } 12% { opacity: 1; } 16% { transform: translateY(0); } 17.5% { transform: translateY(-7px); } 19%, 95% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; transform: none; } }
+.sc-drop3 { animation: sc-drop3 12s cubic-bezier(.3,0,.3,1) infinite; }
+@keyframes sc-drop3 { 0%, 18% { opacity: 0; transform: translateY(-420px); } 19% { opacity: 1; } 23% { transform: translateY(0); } 24.5% { transform: translateY(-7px); } 26%, 95% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; transform: none; } }
+.sc-drop4 { animation: sc-drop4 12s cubic-bezier(.3,0,.3,1) infinite; }
+@keyframes sc-drop4 { 0%, 25% { opacity: 0; transform: translateY(-420px); } 26% { opacity: 1; } 30% { transform: translateY(0); } 31.5% { transform: translateY(-7px); } 33%, 95% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; transform: none; } }
+.sc-progress { animation: sc-progress 12s ease-in-out infinite; }
+@keyframes sc-progress { 0%, 6% { transform: scaleX(0); opacity: 1; } 30% { transform: scaleX(0.55); } 42%, 95% { transform: scaleX(1); opacity: 1; } 99%, 100% { transform: scaleX(1); opacity: 0; } }
+.sc-lbl-building { opacity: 0; animation: sc-lbl-building 12s linear infinite; }
+@keyframes sc-lbl-building { 0%, 41% { opacity: 1; } 43%, 100% { opacity: 0; } }
+.sc-lbl-ready { animation: sc-lbl-ready 12s linear infinite; }
+@keyframes sc-lbl-ready { 0%, 42% { opacity: 0; } 44%, 95% { opacity: 1; } 99%, 100% { opacity: 0; } }
+.sc-btn { animation: sc-press 12s ease-out infinite; }
+@keyframes sc-press { 0%, 50%, 100% { transform: scale(1); } 52% { transform: scale(0.94); } 54.5% { transform: scale(1); } }
+.sc-ripple { opacity: 0; animation: sc-ripple 12s ease-out infinite; }
+@keyframes sc-ripple { 0%, 51.5% { opacity: 0; transform: scale(0.2); } 52.5% { opacity: 0.6; } 59%, 100% { opacity: 0; transform: scale(2.6); } }
+.sc-btn-idle { opacity: 0; animation: sc-btn-idle 12s ease-out infinite; }
+@keyframes sc-btn-idle { 0%, 53% { opacity: 1; transform: none; } 55%, 97% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: none; } }
+.sc-btn-done { animation: sc-btn-done 12s ease-out infinite; }
+@keyframes sc-btn-done { 0%, 54% { opacity: 0; transform: scale(0.4); } 57% { opacity: 1; transform: scale(1.12); } 59%, 95% { opacity: 1; transform: scale(1); } 98%, 100% { opacity: 0; } }
+.sc-hero-notif { animation: sc-hero-notif 12s cubic-bezier(.2,.8,.2,1) infinite; }
+@keyframes sc-hero-notif { 0%, 62% { opacity: 0; transform: translateY(-130%); } 66%, 93% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: translateY(-130%); } }
+
+/* Process 1: messages arrive */
+.sc-msg1 { animation: sc-msg1 9s cubic-bezier(.2,.8,.2,1) infinite; }
+@keyframes sc-msg1 { 0%, 6% { opacity: 0; transform: translateY(14px) scale(0.96); } 10%, 93% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+.sc-msg2 { animation: sc-msg2 9s cubic-bezier(.2,.8,.2,1) infinite; }
+@keyframes sc-msg2 { 0%, 24% { opacity: 0; transform: translateY(14px) scale(0.96); } 28%, 93% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+.sc-msg3 { animation: sc-msg3 9s cubic-bezier(.2,.8,.2,1) infinite; }
+@keyframes sc-msg3 { 0%, 52% { opacity: 0; transform: translateY(14px) scale(0.96); } 56%, 93% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; transform: none; } }
+.sc-typing { opacity: 0; animation: sc-typing 9s linear infinite; }
+@keyframes sc-typing { 0%, 34% { opacity: 0; } 37%, 50% { opacity: 1; } 52%, 100% { opacity: 0; } }
+
+/* Process 2: tap run, tests go green one by one */
+.sc-run { animation: sc-run 8s ease-out infinite; }
+@keyframes sc-run { 0%, 8%, 100% { transform: scale(1); } 10% { transform: scale(0.92); } 12.5% { transform: scale(1); } }
+.sc-run-ripple { opacity: 0; animation: sc-run-ripple 8s ease-out infinite; }
+@keyframes sc-run-ripple { 0%, 9.5% { opacity: 0; transform: scale(0.2); } 10.5% { opacity: 0.55; } 17%, 100% { opacity: 0; transform: scale(2.4); } }
+.sc-pend1 { opacity: 0; animation: sc-pend1 8s linear infinite; }
+@keyframes sc-pend1 { 0%, 12% { opacity: 0; } 13%, 24% { opacity: 1; } 25%, 100% { opacity: 0; } }
+.sc-pass1 { animation: sc-pass1 8s ease-out infinite; }
+@keyframes sc-pass1 { 0%, 24% { opacity: 0; transform: scale(0.4); } 27% { opacity: 1; transform: scale(1.15); } 29%, 94% { opacity: 1; transform: scale(1); } 98%, 100% { opacity: 0; } }
+.sc-pend2 { opacity: 0; animation: sc-pend2 8s linear infinite; }
+@keyframes sc-pend2 { 0%, 12% { opacity: 0; } 13%, 34% { opacity: 1; } 35%, 100% { opacity: 0; } }
+.sc-pass2 { animation: sc-pass2 8s ease-out infinite; }
+@keyframes sc-pass2 { 0%, 34% { opacity: 0; transform: scale(0.4); } 37% { opacity: 1; transform: scale(1.15); } 39%, 94% { opacity: 1; transform: scale(1); } 98%, 100% { opacity: 0; } }
+.sc-pend3 { opacity: 0; animation: sc-pend3 8s linear infinite; }
+@keyframes sc-pend3 { 0%, 12% { opacity: 0; } 13%, 44% { opacity: 1; } 45%, 100% { opacity: 0; } }
+.sc-pass3 { animation: sc-pass3 8s ease-out infinite; }
+@keyframes sc-pass3 { 0%, 44% { opacity: 0; transform: scale(0.4); } 47% { opacity: 1; transform: scale(1.15); } 49%, 94% { opacity: 1; transform: scale(1); } 98%, 100% { opacity: 0; } }
+.sc-pend4 { opacity: 0; animation: sc-pend4 8s linear infinite; }
+@keyframes sc-pend4 { 0%, 12% { opacity: 0; } 13%, 54% { opacity: 1; } 55%, 100% { opacity: 0; } }
+.sc-pass4 { animation: sc-pass4 8s ease-out infinite; }
+@keyframes sc-pass4 { 0%, 54% { opacity: 0; transform: scale(0.4); } 57% { opacity: 1; transform: scale(1.15); } 59%, 94% { opacity: 1; transform: scale(1); } 98%, 100% { opacity: 0; } }
+.sc-summary { animation: sc-summary 8s ease-out infinite; }
+@keyframes sc-summary { 0%, 62% { opacity: 0; transform: translateY(10px) scale(0.8); } 66% { opacity: 1; transform: translateY(0) scale(1.05); } 69%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+
+/* Process 3: swipe to release, store notification */
+.sc-knob { transform: translateX(var(--travel)); animation: sc-knob 6s cubic-bezier(.5,0,.3,1) infinite; }
+@keyframes sc-knob { 0%, 15% { transform: translateX(0); } 50%, 93% { transform: translateX(var(--travel)); } 97%, 100% { transform: translateX(0); } }
+.sc-fill { animation: sc-fill 6s cubic-bezier(.5,0,.3,1) infinite; }
+@keyframes sc-fill { 0%, 15% { transform: scaleX(0.27); } 50%, 93% { transform: scaleX(1); } 97%, 100% { transform: scaleX(0.27); } }
+.sc-swipe-hint { opacity: 0; animation: sc-swipe-hint 6s linear infinite; }
+@keyframes sc-swipe-hint { 0%, 15% { opacity: 1; } 32%, 97% { opacity: 0; } 100% { opacity: 1; } }
+.sc-released { animation: sc-released 6s ease-out infinite; }
+@keyframes sc-released { 0%, 50% { opacity: 0; transform: scale(0.6); } 54% { opacity: 1; transform: scale(1.08); } 57%, 93% { opacity: 1; transform: scale(1); } 97%, 100% { opacity: 0; } }
+.sc-store-notif { animation: sc-store-notif 6s cubic-bezier(.2,.8,.2,1) infinite; }
+@keyframes sc-store-notif { 0%, 58% { opacity: 0; transform: translateY(-130%); } 64%, 91% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: translateY(-130%); } }
+
+/* Location pin */
+.sc-pin { animation: sc-pin 2.4s ease-in-out infinite; }
+@keyframes sc-pin { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.sc-pin-shadow { animation: sc-pin-shadow 2.4s ease-in-out infinite; }
+@keyframes sc-pin-shadow { 0%, 100% { opacity: 0.35; transform: scale(1); } 50% { opacity: 0.15; transform: scale(0.65); } }
+.sc-radar { opacity: 0; animation: sc-radar 3s ease-out infinite; }
+.sc-radar-late { opacity: 0; animation: sc-radar 3s ease-out -1.5s infinite; }
+@keyframes sc-radar { 0% { opacity: 0.8; transform: scale(0.2); } 100% { opacity: 0; transform: scale(1); } }
+
+
+/* Hero editor: lines type in sync with the phone build */
+.sc-type1 { width: var(--w); animation: sc-type1 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type1 { 0%, 3.00% { width: 0; opacity: 1; } 5.98%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret1 { opacity: 0; animation: sc-caret1 12s linear infinite; }
+@keyframes sc-caret1 { 0%, 3.00% { opacity: 0; } 3.01%, 6.73% { opacity: 1; } 6.74%, 100% { opacity: 0; } }
+.sc-type2 { width: var(--w); animation: sc-type2 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type2 { 0%, 6.73% { width: 0; opacity: 1; } 9.71%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret2 { opacity: 0; animation: sc-caret2 12s linear infinite; }
+@keyframes sc-caret2 { 0%, 6.73% { opacity: 0; } 6.74%, 10.45% { opacity: 1; } 10.46%, 100% { opacity: 0; } }
+.sc-type3 { width: var(--w); animation: sc-type3 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type3 { 0%, 10.45% { width: 0; opacity: 1; } 13.44%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret3 { opacity: 0; animation: sc-caret3 12s linear infinite; }
+@keyframes sc-caret3 { 0%, 10.45% { opacity: 0; } 10.46%, 14.18% { opacity: 1; } 14.19%, 100% { opacity: 0; } }
+.sc-type4 { width: var(--w); animation: sc-type4 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type4 { 0%, 14.18% { width: 0; opacity: 1; } 17.16%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret4 { opacity: 0; animation: sc-caret4 12s linear infinite; }
+@keyframes sc-caret4 { 0%, 14.18% { opacity: 0; } 14.19%, 17.91% { opacity: 1; } 17.92%, 100% { opacity: 0; } }
+.sc-type5 { width: var(--w); animation: sc-type5 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type5 { 0%, 17.91% { width: 0; opacity: 1; } 20.89%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret5 { opacity: 0; animation: sc-caret5 12s linear infinite; }
+@keyframes sc-caret5 { 0%, 17.91% { opacity: 0; } 17.92%, 21.64% { opacity: 1; } 21.65%, 100% { opacity: 0; } }
+.sc-type6 { width: var(--w); animation: sc-type6 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type6 { 0%, 21.64% { width: 0; opacity: 1; } 24.62%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret6 { opacity: 0; animation: sc-caret6 12s linear infinite; }
+@keyframes sc-caret6 { 0%, 21.64% { opacity: 0; } 21.65%, 25.36% { opacity: 1; } 25.37%, 100% { opacity: 0; } }
+.sc-type7 { width: var(--w); animation: sc-type7 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type7 { 0%, 25.36% { width: 0; opacity: 1; } 28.35%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret7 { opacity: 0; animation: sc-caret7 12s linear infinite; }
+@keyframes sc-caret7 { 0%, 25.36% { opacity: 0; } 25.37%, 29.09% { opacity: 1; } 29.10%, 100% { opacity: 0; } }
+.sc-type8 { width: var(--w); animation: sc-type8 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type8 { 0%, 29.09% { width: 0; opacity: 1; } 32.07%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret8 { opacity: 0; animation: sc-caret8 12s linear infinite; }
+@keyframes sc-caret8 { 0%, 29.09% { opacity: 0; } 29.10%, 32.82% { opacity: 1; } 32.83%, 100% { opacity: 0; } }
+.sc-type9 { width: var(--w); animation: sc-type9 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type9 { 0%, 32.82% { width: 0; opacity: 1; } 35.80%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret9 { opacity: 0; animation: sc-caret9 12s linear infinite; }
+@keyframes sc-caret9 { 0%, 32.82% { opacity: 0; } 32.83%, 36.55% { opacity: 1; } 36.56%, 100% { opacity: 0; } }
+.sc-type10 { width: var(--w); animation: sc-type10 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type10 { 0%, 36.55% { width: 0; opacity: 1; } 39.53%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret10 { opacity: 0; animation: sc-caret10 12s linear infinite; }
+@keyframes sc-caret10 { 0%, 36.55% { opacity: 0; } 36.56%, 40.27% { opacity: 1; } 40.28%, 100% { opacity: 0; } }
+.sc-type11 { width: var(--w); animation: sc-type11 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-type11 { 0%, 40.27% { width: 0; opacity: 1; } 43.25%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-caret11 { opacity: 1; animation: sc-caret11 12s linear infinite; }
+@keyframes sc-caret11 { 0%, 40.27% { opacity: 0; } 40.28%, 95.00% { opacity: 1; } 95.01%, 100% { opacity: 0; } }
+.sc-blink { animation: sc-blink 1s steps(1) infinite; }
+@keyframes sc-blink { 50% { opacity: 0; } }
+
+/* Hero terminal */
+.sc-tcmd { width: var(--w); animation: sc-tcmd 12s infinite; animation-timing-function: var(--steps); }
+@keyframes sc-tcmd { 0%, 44% { width: 0; opacity: 1; } 49%, 95% { width: var(--w); opacity: 1; } 98%, 100% { width: var(--w); opacity: 0; } }
+.sc-tline1 { animation: sc-tline1 12s ease-out infinite; }
+@keyframes sc-tline1 { 0%, 51% { opacity: 0; transform: translateY(4px); } 52%, 95% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+.sc-tline2 { animation: sc-tline2 12s ease-out infinite; }
+@keyframes sc-tline2 { 0%, 54% { opacity: 0; transform: translateY(4px); } 55%, 95% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+.sc-tline3 { animation: sc-tline3 12s ease-out infinite; }
+@keyframes sc-tline3 { 0%, 57% { opacity: 0; transform: translateY(4px); } 58%, 95% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+.sc-tline4 { animation: sc-tline4 12s ease-out infinite; }
+@keyframes sc-tline4 { 0%, 60% { opacity: 0; transform: translateY(4px); } 61%, 95% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+
+/* Hero background: drifting code tokens + pointer spotlight */
+.sc-drift { animation: sc-drift var(--dur, 16s) ease-in-out var(--delay, 0s) infinite alternate; }
+@keyframes sc-drift { from { transform: translate3d(0, 0, 0) rotate(-2deg); } to { transform: translate3d(12px, -22px, 0) rotate(2deg); } }
+.hero-grid {
+  background-image: radial-gradient(rgb(var(--fg) / 0.13) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
+}
+.hero-spot {
+  background: radial-gradient(420px circle at var(--px, 70%) var(--py, 30%), rgb(var(--accent) / 0.14), transparent 70%);
+}
+.parallax {
+  transform: translate3d(calc(var(--mx, 0) * var(--depth) * 1px), calc(var(--my, 0) * var(--depth) * 1px), 0);
+  transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax { transform: none; transition: none; }
+}
+

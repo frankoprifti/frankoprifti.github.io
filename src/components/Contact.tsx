@@ -1,150 +1,90 @@
-import {
-  FiMail,
-  FiMapPin,
-  FiPhone,
-  FiArrowUpRight,
-} from "react-icons/fi";
-import {
-  FaWhatsapp,
-  FaLinkedin,
-  FaInstagram,
-  FaFacebook,
-  FaGithub,
-} from "react-icons/fa6";
-import type { IconType } from "react-icons";
+import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
+import { Scene } from "./scenes/Phone";
 import { profile } from "../data/profile";
-import { SectionHeading } from "./About";
+import { Reveal } from "./Reveal";
+import { Section } from "./Section";
 
 const phoneDigits = profile.phone.replace(/\D/g, "");
 
-const contactCards: {
-  label: string;
-  value: string;
-  href: string;
-  icon: IconType;
-  accent: string;
-}[] = [
-  {
-    label: "Email",
-    value: profile.email,
-    href: `mailto:${profile.email}`,
-    icon: FiMail,
-    accent: "text-accent-fg",
-  },
-  {
-    label: "WhatsApp",
-    value: profile.phone,
-    href: `https://wa.me/${phoneDigits}`,
-    icon: FaWhatsapp,
-    accent: "text-success-fg",
-  },
-  {
-    label: "Phone",
-    value: profile.phone,
-    href: `tel:${phoneDigits}`,
-    icon: FiPhone,
-    accent: "text-accent-fg",
-  },
-  {
-    label: "Location",
-    value: profile.location,
-    href: `https://maps.google.com/?q=${encodeURIComponent(profile.location)}`,
-    icon: FiMapPin,
-    accent: "text-attention-fg",
-  },
-];
-
-const socials: { label: string; href: string; icon: IconType }[] = [
-  { label: "GitHub", href: profile.social.github, icon: FaGithub },
-  { label: "LinkedIn", href: profile.social.linkedin, icon: FaLinkedin },
-  { label: "Instagram", href: profile.social.instagram, icon: FaInstagram },
-  { label: "Facebook", href: profile.social.facebook, icon: FaFacebook },
+const channels = [
+  { label: "WhatsApp", value: profile.phone, href: `https://wa.me/${phoneDigits}` },
+  { label: "Phone", value: profile.phone, href: `tel:+${phoneDigits}` },
+  { label: "LinkedIn", value: "in/frankoprifti", href: profile.social.linkedin },
+  { label: "GitHub", value: `@${profile.username}`, href: profile.social.github },
+  { label: "Instagram", value: `@${profile.username}`, href: profile.social.instagram },
+  { label: "Facebook", value: profile.username, href: profile.social.facebook },
 ];
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20 border-b border-bd-muted">
-      <div className="max-w-[1180px] mx-auto px-4 md:px-6">
-        <SectionHeading
-          kicker="06"
-          title="Let's work together"
-          subtitle="The fastest way to reach me is email or WhatsApp — I usually reply within a day."
-        />
+    <Section
+      id="contact"
+      index="07"
+      label="Contact"
+      title={
+        <>
+          Have a product in mind?{" "}
+          <span className="text-muted">
+            Email or WhatsApp is fastest. I usually reply within a day.
+          </span>
+        </>
+      }
+    >
+      <Reveal>
+        <a
+          href={`mailto:${profile.email}`}
+          className="group inline-flex flex-wrap items-center gap-x-4 break-all text-[clamp(1.75rem,5.5vw,4.25rem)] font-semibold leading-tight tracking-[-0.04em]"
+        >
+          <span className="link-underline">{profile.email}</span>
+          <FiArrowUpRight
+            aria-hidden
+            className="shrink-0 text-accent transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:translate-x-1"
+          />
+        </a>
+      </Reveal>
 
-        <ul className="mt-10 grid sm:grid-cols-2 gap-4">
-          {contactCards.map(({ label, value, href, icon: Icon, accent }) => (
-            <li key={label}>
+      <ul className="mt-16 border-t border-line">
+        {channels.map((c) => {
+          const external = c.href.startsWith("http");
+          return (
+            <li key={c.label} className="border-b border-line">
               <a
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noreferrer" : undefined}
-                className="group flex items-center gap-4 border border-bd-default rounded-lg p-5 bg-canvas-overlay hover:border-accent-fg hover:-translate-y-0.5 transition-all duration-200 no-underline"
+                href={c.href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noreferrer" : undefined}
+                className="group grid min-h-[64px] grid-cols-[110px_1fr_auto] items-center gap-4 py-4 transition-colors sm:grid-cols-[180px_1fr_auto]"
               >
-                <span
-                  className={`w-12 h-12 shrink-0 rounded-md border border-bd-default bg-canvas-default flex items-center justify-center ${accent}`}
-                >
-                  <Icon size={22} />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <div className="text-xs uppercase tracking-wider text-fg-muted">
-                    {label}
-                  </div>
-                  <div className="text-fg-default font-medium truncate">
-                    {value}
-                  </div>
-                </div>
+                <span className="label">{c.label}</span>
+                <span className="truncate text-lg">{c.value}</span>
                 <FiArrowUpRight
+                  aria-hidden
                   size={18}
-                  className="text-fg-muted group-hover:text-accent-fg shrink-0"
+                  className="text-subtle transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
                 />
               </a>
             </li>
-          ))}
-        </ul>
+          );
+        })}
+      </ul>
 
-        <div className="mt-10">
-          <h3 className="text-sm font-semibold text-fg-muted uppercase tracking-wider mb-4">
-            Find me online
-          </h3>
-          <ul className="flex flex-wrap gap-3">
-            {socials.map(({ label, href, icon: Icon }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex items-center gap-2.5 px-4 py-2.5 rounded-md border border-bd-default bg-canvas-overlay hover:border-accent-fg hover:text-accent-fg text-fg-default no-underline transition-colors"
-                >
-                  <Icon
-                    size={18}
-                    className="text-fg-muted group-hover:text-accent-fg transition-colors"
-                  />
-                  <span className="text-sm font-medium">{label}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+      <Reveal className="mt-12 flex items-center gap-6 rounded-3xl border border-line bg-surface/60 p-4 pr-6">
+        <Scene
+          label={`Map pin on ${profile.location}`}
+          className="hero-grid relative flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-bg [mask-image:none]"
+        >
+          <span className="sc-radar absolute h-24 w-24 rounded-full border-2 border-accent" />
+          <span className="sc-radar-late absolute h-24 w-24 rounded-full border-2 border-accent" />
+          <span className="sc-pin-shadow absolute top-[62%] h-1.5 w-5 rounded-full bg-fg/60 blur-[1px]" />
+          <span className="sc-pin relative -mt-5 text-accent">
+            <FiMapPin size={30} strokeWidth={2.5} />
+          </span>
+        </Scene>
+        <div>
+          <div className="label">Based in</div>
+          <div className="mt-1.5 text-xl font-semibold tracking-[-0.02em]">{profile.location}</div>
+          <div className="mt-1 font-mono text-sm text-muted">{profile.timezone}</div>
         </div>
-
-        <div className="mt-10 p-6 border border-bd-default rounded-lg bg-gradient-to-br from-canvas-overlay to-canvas-default flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-          <div className="flex-1">
-            <div className="text-fg-default font-semibold mb-1">
-              Prefer email? Send me a note.
-            </div>
-            <p className="text-sm text-fg-muted">
-              Tell me a bit about your project and I'll get back to you with
-              next steps.
-            </p>
-          </div>
-          <a
-            href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-success-emphasis hover:bg-success-fg text-white font-medium no-underline transition-colors whitespace-nowrap"
-          >
-            <FiMail size={16} />
-            Email me
-          </a>
-        </div>
-      </div>
-    </section>
+      </Reveal>
+    </Section>
   );
 }

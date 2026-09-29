@@ -1,91 +1,235 @@
-import { FiMapPin, FiMail, FiArrowRight, FiDownload } from "react-icons/fi";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { FiArrowDownRight, FiArrowUpRight } from "react-icons/fi";
 import { profile } from "../data/profile";
+import { useReducedMotion } from "../hooks/useReducedMotion";
+import { HeroScene } from "./scenes/HeroScene";
+
+const CV_URL =
+  "https://drive.google.com/file/d/17aZCC_griu9cv_3zTpsf5pz8cdMVUC1M/view?usp=drive_link";
+
+const meta = [
+  { label: "Currently", value: `${profile.title} at ${profile.currentCompanies}` },
+  { label: "Based in", value: `${profile.location} · ${profile.timezone}` },
+  { label: "Focus", value: "React Native, React, TypeScript" },
+];
+
+const roles = ["React Native apps", "fintech products", "AI interfaces", "web platforms"];
+
+const tokens: { text: string; x: string; y: string; depth: number; dur: number; hideSm?: boolean }[] = [
+  { text: "<View />", x: "4%", y: "14%", depth: 18, dur: 15 },
+  { text: "useState()", x: "44%", y: "6%", depth: -12, dur: 18, hideSm: true },
+  { text: "=>", x: "30%", y: "58%", depth: 24, dur: 13, hideSm: true },
+  { text: "{ }", x: "90%", y: "8%", depth: -20, dur: 17 },
+  { text: "git push", x: "2%", y: "82%", depth: 10, dur: 19, hideSm: true },
+  { text: "</>", x: "52%", y: "88%", depth: -16, dur: 14 },
+  { text: "async", x: "86%", y: "92%", depth: 14, dur: 16, hideSm: true },
+  { text: "npx expo", x: "20%", y: "36%", depth: -8, dur: 20, hideSm: true },
+];
+
+const GLYPHS = "!<>-_\\/[]{}=+*^?#01";
+
+/** Characters resolve from random glyphs into the real text, left to right. */
+function useDecode(text: string, enabled: boolean, duration = 900) {
+  const [out, setOut] = useState(() =>
+    text.replace(/\S/g, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)])
+  );
+  useEffect(() => {
+    if (!enabled) return;
+    let frame = 0;
+    const t0 = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - t0) / duration);
+      const settled = Math.floor(p * text.length);
+      setOut(
+        [...text]
+          .map((ch, i) =>
+            ch === " " || ch === "\n" || i < settled
+              ? ch
+              : GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
+          )
+          .join("")
+      );
+      if (p < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    // rAF is throttled in background tabs; never leave the name scrambled.
+    const settle = setTimeout(() => {
+      cancelAnimationFrame(frame);
+      setOut(text);
+    }, duration + 150);
+    return () => {
+      cancelAnimationFrame(frame);
+      clearTimeout(settle);
+    };
+  }, [text, enabled, duration]);
+  return enabled ? out : text;
+}
+
+function useTypewriter(words: string[], enabled: boolean) {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState(enabled ? "" : words[0]);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    if (!enabled) return;
+    const word = words[index];
+    let delay = deleting ? 35 : 70;
+    if (!deleting && text === word) delay = 1800;
+    if (deleting && text === "") delay = 300;
+
+    const id = setTimeout(() => {
+      if (!deleting && text === word) setDeleting(true);
+      else if (deleting && text === "") {
+        setDeleting(false);
+        setIndex((i) => (i + 1) % words.length);
+      } else setText(word.slice(0, text.length + (deleting ? -1 : 1)));
+    }, delay);
+    return () => clearTimeout(id);
+  }, [text, deleting, index, words, enabled]);
+
+  return enabled ? text : words[0];
+}
 
 export function Hero() {
+  const reduced = useReducedMotion();
+  const first = useDecode("Franko", !reduced, 800);
+  const last = useDecode("Prifti", !reduced, 1100);
+  const role = useTypewriter(roles, !reduced);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || reduced || !matchMedia("(pointer: fine)").matches) return;
+    let frame = 0;
+    const onMove = (e: PointerEvent) => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        el.style.setProperty("--mx", (x * 2 - 1).toFixed(3));
+        el.style.setProperty("--my", (y * 2 - 1).toFixed(3));
+        el.style.setProperty("--px", `${(x * 100).toFixed(1)}%`);
+        el.style.setProperty("--py", `${(y * 100).toFixed(1)}%`);
+      });
+    };
+    el.addEventListener("pointermove", onMove);
+    return () => {
+      cancelAnimationFrame(frame);
+      el.removeEventListener("pointermove", onMove);
+    };
+  }, [reduced]);
+
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden border-b border-bd-default"
-    >
-      <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(800px circle at 20% 0%, rgba(56,139,253,0.18), transparent 40%), radial-gradient(600px circle at 90% 30%, rgba(63,185,80,0.12), transparent 40%)",
-        }}
-      />
-
-      <div className="relative max-w-[1180px] mx-auto px-4 md:px-6 py-16 md:py-24 grid md:grid-cols-[1fr_auto] gap-10 items-center">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-bd-default bg-canvas-overlay text-xs text-fg-muted mb-6">
-            <span className="w-2 h-2 rounded-full bg-success-fg animate-pulse" />
-            Currently @ {profile.currentCompanies}
-          </div>
-
-          <h1 className="text-4xl md:text-6xl font-semibold text-fg-default leading-tight tracking-tight">
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-accent-fg to-success-fg bg-clip-text text-transparent">
-              Franko Prifti
+    <section id="top" ref={ref} className="relative overflow-hidden">
+      <div aria-hidden className="hero-grid pointer-events-none absolute inset-0" />
+      <div aria-hidden className="hero-spot pointer-events-none absolute inset-0" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 select-none">
+        {tokens.map((t) => (
+          <span
+            key={t.text}
+            className={`parallax absolute ${t.hideSm ? "hidden md:block" : ""}`}
+            style={{ left: t.x, top: t.y, "--depth": t.depth } as CSSProperties}
+          >
+            <span
+              className="sc-drift block font-mono text-sm text-subtle/50 md:text-base"
+              style={{ "--dur": `${t.dur}s`, "--delay": `-${t.dur / 3}s` } as CSSProperties}
+            >
+              {t.text}
             </span>
-          </h1>
-          <p className="mt-3 text-lg md:text-xl text-fg-muted">
-            {profile.title}
-          </p>
+          </span>
+        ))}
+      </div>
 
-          <p className="mt-6 max-w-xl text-fg-default leading-relaxed">
-            {profile.tagline}
-          </p>
+      <div className="container-x relative pb-20 pt-28 md:pb-28 md:pt-36">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-3 animate-[fadeUp_700ms_both]">
+              <img
+                src={profile.avatar}
+                alt=""
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full object-cover ring-1 ring-line"
+              />
+              <span className="inline-flex items-center gap-2 text-sm text-muted">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:hidden" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+                Currently shipping at {profile.currentCompanies}
+              </span>
+            </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-fg-muted">
-            <span className="inline-flex items-center gap-2">
-              <FiMapPin size={14} />
-              {profile.location}
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <FiMail size={14} />
+            <h1
+              aria-label={profile.name}
+              className="mt-8 text-[clamp(3.25rem,10vw,8.5rem)] font-semibold leading-[0.88] tracking-[-0.055em]"
+            >
+              <span aria-hidden className="block whitespace-pre">{first}</span>
+              <span aria-hidden className="block whitespace-pre">
+                {last}
+                <span className="text-accent">.</span>
+                <span className="sc-blink ml-2 inline-block h-[0.75em] w-[0.08em] translate-y-[0.04em] bg-accent motion-reduce:hidden" />
+              </span>
+            </h1>
+
+            <p
+              className="mt-8 font-mono text-base text-muted md:text-lg animate-[fadeUp_800ms_120ms_both]"
+              aria-label={`Building ${roles.join(", ")}`}
+            >
+              <span aria-hidden>
+                <span className="text-accent">&gt;</span> building{" "}
+                <span className="text-fg">{role}</span>
+                <span className="sc-blink ml-0.5 inline-block h-[1.1em] w-[0.55ch] translate-y-[0.2em] bg-fg/70 motion-reduce:hidden" />
+              </span>
+            </p>
+
+            <p className="mt-6 max-w-xl text-xl leading-relaxed text-muted text-pretty animate-[fadeUp_800ms_200ms_both]">
+              <span className="text-fg">{profile.title}.</span> {profile.tagline}
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-3 animate-[fadeUp_800ms_280ms_both]">
               <a
-                href={`mailto:${profile.email}`}
-                className="hover:text-accent-fg"
+                href="#projects"
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-fg px-6 font-medium text-bg transition-transform duration-200 ease-out hover:-translate-y-0.5"
               >
-                {profile.email}
+                View selected work
+                <FiArrowDownRight size={18} aria-hidden />
               </a>
-            </span>
+              <a
+                href="#contact"
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-full border border-line bg-bg/60 px-6 font-medium backdrop-blur transition-colors duration-200 hover:border-fg"
+              >
+                Get in touch
+              </a>
+              <a
+                href={CV_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-[48px] items-center gap-1.5 px-3 font-medium text-muted transition-colors hover:text-fg"
+              >
+                Download CV
+                <FiArrowUpRight size={16} aria-hidden />
+              </a>
+            </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-success-emphasis hover:bg-success-fg text-white font-medium no-underline transition-colors"
-            >
-              View my work
-              <FiArrowRight size={16} />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-bd-default hover:border-accent-fg text-fg-default font-medium no-underline transition-colors"
-            >
-              Get in touch
-            </a>
-            <a
-              href="https://drive.google.com/file/d/17aZCC_griu9cv_3zTpsf5pz8cdMVUC1M/view?usp=drive_link"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-fg-muted hover:text-fg-default no-underline transition-colors"
-            >
-              <FiDownload size={16} />
-              Download CV
-            </a>
+          <div className="lg:col-span-5 animate-[fadeUp_900ms_200ms_both]">
+            <HeroScene />
           </div>
         </div>
 
-        <div className="relative justify-self-center md:justify-self-end">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-fg to-success-fg blur-3xl opacity-25" />
-          <img
-            src={profile.avatar}
-            alt={profile.name}
-            className="relative w-56 h-56 md:w-72 md:h-72 rounded-full border-2 border-bd-default object-cover shadow-2xl"
-          />
-        </div>
+        <dl className="mt-16 grid border-t border-line md:mt-20 md:grid-cols-3">
+          {meta.map((m, i) => (
+            <div
+              key={m.label}
+              className={`border-b border-line py-5 md:border-b-0 ${i > 0 ? "md:border-l md:pl-6" : ""}`}
+            >
+              <dt className="label">{m.label}</dt>
+              <dd className="mt-2 text-fg">{m.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

@@ -1,156 +1,144 @@
 import { useState } from "react";
-import { FiArrowUpRight, FiSmartphone, FiMonitor } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 import { projects, type ProjectCategory, type Project } from "../data/profile";
-import { SectionHeading } from "./About";
+import { Reveal } from "./Reveal";
+import { Section } from "./Section";
 
 const filters: ("All" | ProjectCategory)[] = ["All", "Web", "Mobile"];
+const PAGE = 9;
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
-  const visible =
-    filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  const [expanded, setExpanded] = useState(false);
+
+  const featured = filter === "All" ? projects.filter((p) => p.featured) : [];
+  const rest = projects.filter(
+    (p) => (filter === "All" ? !p.featured : p.category === filter)
+  );
+  const visible = expanded ? rest : rest.slice(0, PAGE);
 
   return (
-    <section id="projects" className="py-20 border-b border-bd-muted">
-      <div className="max-w-[1180px] mx-auto px-4 md:px-6">
-        <SectionHeading
-          kicker="04"
-          title="Selected projects"
-          subtitle="A snapshot of products I've shipped — full list on my GitHub and portfolio."
-        />
-
-        <div className="mt-8 flex flex-wrap items-center gap-2">
-          {filters.map((f) => (
+    <Section
+      id="projects"
+      index="05"
+      label="Selected work"
+      title={
+        <>
+          {projects.length} products shipped.{" "}
+          <span className="text-muted">
+            Fintech, health, AI, and everything between.
+          </span>
+        </>
+      }
+    >
+      <div
+        role="group"
+        aria-label="Filter projects"
+        className="inline-flex rounded-full border border-line p-1"
+      >
+        {filters.map((f) => {
+          const count =
+            f === "All" ? projects.length : projects.filter((p) => p.category === f).length;
+          return (
             <button
               key={f}
-              onClick={() => setFilter(f)}
-              className={`px-4 py-1.5 rounded-full text-sm border transition-colors ${
-                filter === f
-                  ? "bg-accent-emphasis border-accent-emphasis text-white"
-                  : "border-bd-default text-fg-muted hover:text-fg-default hover:border-fg-muted"
+              type="button"
+              aria-pressed={filter === f}
+              onClick={() => {
+                setFilter(f);
+                setExpanded(false);
+              }}
+              className={`inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm transition-colors duration-200 ${
+                filter === f ? "bg-fg text-bg" : "text-muted hover:text-fg"
               }`}
             >
               {f}
-              <span className="ml-2 text-xs opacity-70">
-                {f === "All"
-                  ? projects.length
-                  : projects.filter((p) => p.category === f).length}
-              </span>
+              <span className="font-mono text-xs opacity-60">{count}</span>
             </button>
-          ))}
-        </div>
+          );
+        })}
+      </div>
 
-        <ul className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {visible.map((p) => (
-            <ProjectCard key={p.title} project={p} />
+      {featured.length > 0 && (
+        <ul className="mt-12 grid gap-10 md:grid-cols-2">
+          {featured.map((p, i) => (
+            <ProjectCard key={p.title} project={p} delay={i * 80} large />
           ))}
         </ul>
-      </div>
-    </section>
+      )}
+
+      <ul className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((p, i) => (
+          <ProjectCard key={p.title} project={p} delay={(i % 3) * 80} />
+        ))}
+      </ul>
+
+      {rest.length > PAGE && (
+        <div className="mt-14 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setExpanded((e) => !e)}
+            className="inline-flex min-h-[48px] items-center rounded-full border border-line px-6 font-medium transition-colors hover:border-fg"
+          >
+            {expanded ? "Show fewer" : `Show all ${rest.length}`}
+          </button>
+        </div>
+      )}
+    </Section>
   );
 }
 
-function ProjectCard({ project: p }: { project: Project }) {
+function ProjectCard({
+  project: p,
+  delay,
+  large = false,
+}: {
+  project: Project;
+  delay: number;
+  large?: boolean;
+}) {
   const Wrapper = p.url ? "a" : "div";
-  const wrapperProps = p.url
-    ? { href: p.url, target: "_blank", rel: "noreferrer" }
-    : {};
+  const wrapperProps = p.url ? { href: p.url, target: "_blank", rel: "noreferrer" } : {};
 
   return (
-    <li className="group relative flex flex-col border border-bd-default rounded-lg bg-canvas-overlay overflow-hidden hover:border-accent-fg hover:-translate-y-0.5 transition-all duration-200">
-      <Wrapper
-        {...wrapperProps}
-        className="flex flex-col h-full no-underline text-inherit"
-      >
-        <div className="relative aspect-[16/10] overflow-hidden bg-canvas-default">
-          {p.image ? (
+    <Reveal as="li" delay={delay}>
+      <Wrapper {...wrapperProps} className="group block">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-line bg-surface">
+          {p.image && (
             <img
               src={p.image}
-              alt={p.title}
+              alt=""
               loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
-          ) : (
-            <PlaceholderArt title={p.title} category={p.category} />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-canvas-overlay via-canvas-overlay/10 to-transparent pointer-events-none" />
-          <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-canvas-default/80 backdrop-blur border border-bd-default text-fg-default">
-            {p.category === "Mobile" ? (
-              <FiSmartphone size={11} />
-            ) : (
-              <FiMonitor size={11} />
-            )}
-            {p.category}
-          </span>
         </div>
-
-        <div className="flex-1 flex flex-col p-5">
-          <div className="flex items-start justify-between gap-3 mb-2">
-            <h3 className="font-semibold text-fg-default group-hover:text-accent-fg transition-colors">
-              {p.title}
+        <div className="mt-5 flex items-start justify-between gap-4">
+          <div>
+            <div className="label">
+              {p.category} · {p.tags.slice(0, 2).join(" · ")}
+            </div>
+            <h3
+              className={`mt-2 font-semibold tracking-[-0.02em] ${
+                large ? "text-2xl md:text-3xl" : "text-lg"
+              }`}
+            >
+              <span className="link-underline">{p.title}</span>
             </h3>
-            {p.url && (
-              <FiArrowUpRight
-                size={16}
-                className="text-fg-muted group-hover:text-accent-fg shrink-0 mt-1"
-              />
-            )}
           </div>
-          <p className="text-sm text-fg-muted leading-relaxed mb-4 flex-1">
-            {p.description}
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {p.tags.map((t) => (
-              <span
-                key={t}
-                className="text-[11px] px-2 py-0.5 rounded-full border border-bd-default text-fg-muted bg-canvas-default"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+          {p.url && (
+            <FiArrowUpRight
+              aria-hidden
+              size={large ? 24 : 18}
+              className="mt-6 shrink-0 text-subtle transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+            />
+          )}
         </div>
+        <p className={`mt-2 leading-relaxed text-muted ${large ? "text-lg" : "text-sm"}`}>
+          {p.description}
+        </p>
       </Wrapper>
-    </li>
-  );
-}
-
-function PlaceholderArt({
-  title,
-  category,
-}: {
-  title: string;
-  category: ProjectCategory;
-}) {
-  const initials = title
-    .replace(/[^A-Za-z0-9 ]/g, "")
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-
-  const gradient =
-    category === "Mobile"
-      ? "from-[#1f6feb] via-[#0e4429] to-[#39d353]"
-      : "from-[#1f6feb] via-[#3b1e5e] to-[#bf4b8a]";
-
-  return (
-    <div
-      className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br ${gradient}`}
-    >
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 25% 25%, rgba(255,255,255,0.4) 0%, transparent 40%), radial-gradient(circle at 75% 75%, rgba(255,255,255,0.2) 0%, transparent 40%)",
-        }}
-      />
-      <span className="relative font-mono font-bold text-white/90 text-5xl tracking-tight drop-shadow">
-        {initials}
-      </span>
-    </div>
+    </Reveal>
   );
 }

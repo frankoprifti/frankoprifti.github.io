@@ -1,33 +1,34 @@
-import { skills } from "../data/profile";
-import { SectionHeading } from "./About";
+import { skillGroups } from "../data/profile";
+import { Reveal } from "./Reveal";
+import { Section } from "./Section";
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 border-b border-bd-muted">
-      <div className="max-w-[1180px] mx-auto px-4 md:px-6">
-        <SectionHeading
-          kicker="02"
-          title="Skills"
-          subtitle="The tools I reach for most often when building products."
-        />
-
-        <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-5 mt-10">
-          {skills.map((s) => (
-            <li key={s.name}>
-              <div className="flex items-center justify-between mb-2 text-sm">
-                <span className="text-fg-default font-medium">{s.name}</span>
-                <span className="text-fg-muted font-mono">{s.level}%</span>
-              </div>
-              <div className="h-2 rounded-full bg-canvas-overlay border border-bd-muted overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-accent-fg to-success-fg transition-all duration-700"
-                  style={{ width: `${s.level}%` }}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
+    <Section
+      id="skills"
+      index="02"
+      label="Skills"
+      title={
+        <>
+          The tools I reach for when a product has to ship,{" "}
+          <span className="text-muted">and keep working after it does.</span>
+        </>
+      }
+    >
+      <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2">
+        {skillGroups.map((g, i) => (
+          <Reveal key={g.name} delay={i * 80} className="border-t border-line pt-5">
+            <h3 className="label">{g.name}</h3>
+            <ul className="mt-5 space-y-2.5">
+              {g.items.map((item) => (
+                <li key={item} className="text-lg text-fg md:text-xl">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }
