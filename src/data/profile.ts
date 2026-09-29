@@ -164,8 +164,11 @@ export type Project = {
   tags: string[];
   category: ProjectCategory;
   url?: string;
+  /** Second store link for apps on both stores; `url` is the Google Play listing. */
+  appStoreUrl?: string;
   image?: string;
-  featured?: boolean;
+  /** "flagship" gets the full-width feature, "major" a large card; the rest are listed compactly. */
+  tier?: "flagship" | "major";
 };
 
 const PROJECT_IMG_BASE = "/projects";
@@ -174,12 +177,13 @@ export const projects: Project[] = [
   {
     title: "Zable Mobile Finance",
     description:
-      "Consumer credit & loans app by Lendable, used by 1M+ customers (4.8★ on Google Play). Building React Native features focused on performance and clean architecture.",
+      "Consumer credit & loans app by Lendable, used by 1M+ customers and rated 4.9★ on the App Store from 275K ratings. Building React Native features focused on performance and clean architecture.",
     tags: ["React Native", "TypeScript", "Fintech"],
     category: "Mobile",
     url: "https://play.google.com/store/apps/details?id=com.levelcard",
+    appStoreUrl: "https://apps.apple.com/gb/app/zable-mobile-finance/id1445703716",
     image: `${PROJECT_IMG_BASE}/zable.jpg`,
-    featured: true,
+    tier: "flagship",
   },
   {
     title: "ReN AI",
@@ -189,7 +193,7 @@ export const projects: Project[] = [
     category: "Web",
     url: "https://app.myrenx.ai",
     image: `${PROJECT_IMG_BASE}/ren-ai.png`,
-    featured: true,
+    tier: "major",
   },
   {
     title: "DriveTrack",
@@ -199,6 +203,7 @@ export const projects: Project[] = [
     category: "Mobile",
     url: "https://play.google.com/store/apps/details?id=io.github.frankoprifti.drivetrack",
     image: `${PROJECT_IMG_BASE}/drivetrack-app.jpg`,
+    tier: "major",
   },
   {
     title: "DriveTrack Landing",
@@ -217,6 +222,7 @@ export const projects: Project[] = [
     category: "Mobile",
     url: "https://www.linkedin.com/company/jennis-cyclemapping/",
     image: `${PROJECT_IMG_BASE}/jennis.jpeg`,
+    tier: "major",
   },
   {
     title: "truu",
@@ -226,6 +232,7 @@ export const projects: Project[] = [
     category: "Mobile",
     url: "https://www.linkedin.com/company/truu-id/about/",
     image: `${PROJECT_IMG_BASE}/nhs2.png`,
+    tier: "major",
   },
   {
     title: "iiNDYVERSE Artist Console",
