@@ -13,8 +13,8 @@ const major = projects.filter((p) => p.tier === "major");
 const minor = projects.filter((p) => !p.tier);
 
 const flagshipFacts = [
-  { label: "Customers", value: "1M+", note: "across iOS and Android" },
-  { label: "App Store", value: "4.9★", note: "275K ratings" },
+  { label: "Customers", value: "3M+", note: "across iOS and Android" },
+  { label: "App Store", value: "4.9★", note: "296K ratings" },
   { label: "Google Play", value: "4.8★", note: "rating" },
 ];
 
@@ -153,16 +153,33 @@ function Flagship({ project: p }: { project: Project }) {
   return (
     <Reveal>
       <article className="group grid overflow-hidden rounded-3xl border border-line bg-surface md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        <div className="relative flex items-center justify-center overflow-hidden bg-[linear-gradient(180deg,#192649,#0E3D8D)] px-8 pt-10 md:py-12">
+        <div className="relative flex items-center justify-center overflow-hidden bg-[linear-gradient(180deg,#0A3A36,#062421)] px-8 py-10 md:py-12">
+          {p.gallery?.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt=""
+              aria-hidden
+              loading="lazy"
+              decoding="async"
+              width={600}
+              height={1067}
+              className={`absolute hidden w-[170px] rounded-2xl opacity-90 shadow-[0_24px_48px_-16px_rgb(0_0_0/0.5)] transition-transform duration-700 ease-out sm:block lg:w-[190px] ${
+                i === 0
+                  ? "-translate-x-[62%] -rotate-6 group-hover:-translate-x-[68%]"
+                  : "translate-x-[62%] rotate-6 group-hover:translate-x-[68%]"
+              }`}
+            />
+          ))}
           {p.image && (
             <img
               src={p.image}
               alt={`${p.title} app screen`}
               loading="lazy"
               decoding="async"
-              width={326}
-              height={592}
-              className="w-[240px] rounded-2xl shadow-[0_24px_48px_-16px_rgb(0_0_0/0.5)] transition-transform duration-700 ease-out group-hover:-translate-y-1.5 md:w-[280px]"
+              width={600}
+              height={1067}
+              className="relative w-[240px] rounded-2xl shadow-[0_24px_48px_-16px_rgb(0_0_0/0.6)] transition-transform duration-700 ease-out group-hover:-translate-y-1.5 md:w-[210px] lg:w-[230px]"
             />
           )}
         </div>
@@ -175,7 +192,7 @@ function Flagship({ project: p }: { project: Project }) {
             {p.title}
           </h3>
           <p className="mt-2 text-lg text-muted">
-            by Lendable · my role: Senior Software Engineer
+            by Zable · my role: Senior Software Engineer
           </p>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{p.description}</p>
 

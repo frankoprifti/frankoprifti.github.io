@@ -4,11 +4,11 @@ export const profile = {
   avatar: "https://avatars.githubusercontent.com/u/29095780?v=4",
   title: "Senior Software Engineer",
   headline:
-    "Senior Software Engineer @ Lendable · Expertise in React.js & React Native",
+    "Senior Software Engineer @ Zable · Expertise in React.js & React Native",
   tagline:
     "I lead the development of polished, production-grade mobile and web apps with React Native, React, and TypeScript.",
   bio: "With over 8 years of experience in web and mobile development, I have acquired a comprehensive skill set in React, React Native, Node.js, Firebase, and other technologies. I have successfully delivered cross-platform mobile applications using React Native and Flutter, and engineered server-side solutions using Node.js and Firebase. I hold a Master's degree in Business Informatics from the University of Tirana, and I am passionate about learning new technologies and creating high-quality applications.",
-  currentCompanies: "Lendable",
+  currentCompanies: "Zable",
   location: "Tirana, Albania",
   timezone: "UTC +02:00",
   email: "frankoprifti@gmail.com",
@@ -60,11 +60,11 @@ export type ExperienceEntry = {
 export const experience: ExperienceEntry[] = [
   {
     role: "Senior Software Engineer",
-    company: "Lendable",
+    company: "Zable",
     period: "Jan 2026 - Present",
     location: "London, United Kingdom",
     description:
-      "Building and shipping React Native features for Lendable's consumer fintech app, focused on performance, reliability, and clean architecture.",
+      "Building and shipping React Native features for Zable's consumer fintech app, focused on performance, reliability, and clean architecture.",
   },
   {
     role: "Senior Frontend Developer",
@@ -167,6 +167,8 @@ export type Project = {
   /** Second store link for apps on both stores; `url` is the Google Play listing. */
   appStoreUrl?: string;
   image?: string;
+  /** Extra screenshots shown alongside `image` on the flagship card. */
+  gallery?: string[];
   /** "flagship" gets the full-width feature, "major" a large card; the rest are listed compactly. */
   tier?: "flagship" | "major";
 };
@@ -177,12 +179,13 @@ export const projects: Project[] = [
   {
     title: "Zable Mobile Finance",
     description:
-      "Consumer credit & loans app by Lendable, used by 1M+ customers and rated 4.9★ on the App Store from 275K ratings. Building React Native features focused on performance and clean architecture.",
+      "Credit cards, loans, car finance and credit-score tools from Zable, trusted by 3M+ customers and rated 4.9★ on the App Store from 296K ratings. Building React Native features focused on performance and clean architecture.",
     tags: ["React Native", "TypeScript", "Fintech"],
     category: "Mobile",
     url: "https://play.google.com/store/apps/details?id=com.levelcard",
     appStoreUrl: "https://apps.apple.com/gb/app/zable-mobile-finance/id1445703716",
-    image: `${PROJECT_IMG_BASE}/zable.jpg`,
+    image: `${PROJECT_IMG_BASE}/zable-1.jpg`,
+    gallery: [`${PROJECT_IMG_BASE}/zable-2.jpg`, `${PROJECT_IMG_BASE}/zable-3.jpg`],
     tier: "flagship",
   },
   {
